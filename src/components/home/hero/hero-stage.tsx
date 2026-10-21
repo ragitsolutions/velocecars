@@ -4,17 +4,14 @@ import dynamic from "next/dynamic";
 import { getImageProps } from "next/image";
 import { preload } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { afterFirstInteraction, detectHeroMode, type HeroMode } from "@/lib/device";
+import { detectHeroMode, whenHeroIdle, type HeroMode } from "@/lib/device";
 import { cn } from "@/lib/utils/format";
 import { heroState } from "./hero-progress";
 import { TurntableSequence } from "./turntable-sequence";
 import { HERO_POSTER } from "./hero-assets";
 
-// Three.js (~600 KB) se carga aparte, solo en el navegador y tras la primera interacción.
+// Three.js (~600 KB) se carga aparte, solo en el navegador y cuando no estorba (whenHeroIdle).
 const CarScene = dynamic(() => import("@/components/three/car-scene"), { ssr: false });
-
-/** Sin interacción, la escena 3D se carga igualmente pasado este tiempo. */
-const LOAD_3D_FALLBACK_MS = 6000;
 
 const PORTRAIT_MEDIA = "(max-aspect-ratio: 1/1)";
 const LANDSCAPE_MEDIA = "(min-aspect-ratio: 1/1)";
@@ -86,19 +83,17 @@ export function HeroStage() {
   const onReady = useCallback(() => setReady(true), []);
 
   useEffect(() => {
-    let cancelled = false;
+    const abort = new AbortController();
     // En móvil: suelo sin reflejo en tiempo real y menos píxeles (batería y temperatura).
     if (window.matchMedia("(pointer: coarse)").matches) setQuality("low");
     detectHeroMode().then((m) => {
-      if (cancelled) return;
-      if (m === "webgl") {
+      if (abort.signal.aborted) return;
+      if (m === "webgl" && ref.current) {
         // El póster es el mismo fotograma que la escena: el relevo no se nota.
-        afterFirstInteraction(LOAD_3D_FALLBACK_MS).then(() => !cancelled && setMode("webgl"));
+        whenHeroIdle(ref.current, abort.signal).then(() => setMode("webgl"));
       } else setMode(m);
     });
-    return () => {
-      cancelled = true;
-    };
+    return () => abort.abort();
   }, []);
 
   // Pausa el render 3D cuando el hero no se ve (ahorra batería y CPU).

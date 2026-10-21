@@ -14,7 +14,10 @@ function pagesToShow(page: number, count: number): (number | "…")[] {
   return out;
 }
 
-/** Paginación con enlaces reales (rastreables y compartibles). */
+/**
+ * Paginación con enlaces reales (rastreables y compartibles). `scroll={false}`: en lugar de ir
+ * al principio de la página, InventoryProvider sube hasta el inicio de los resultados.
+ */
 export function Pagination({
   page,
   pageCount,
@@ -27,7 +30,11 @@ export function Pagination({
   if (pageCount <= 1) return null;
   const base = "grid h-11 min-w-11 place-items-center border px-3 text-sm transition-colors";
   return (
-    <nav aria-label="Paginación" className="mt-14 flex flex-wrap items-center justify-center gap-2">
+    <nav
+      aria-label="Paginación"
+      data-pagination
+      className="mt-14 flex flex-wrap items-center justify-center gap-2"
+    >
       {page > 1 && (
         <Link
           href={hrefFor(page - 1)}

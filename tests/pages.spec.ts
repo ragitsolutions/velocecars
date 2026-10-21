@@ -128,3 +128,38 @@ test.describe("legales y 404", () => {
     await expect(page).toHaveURL(/\/vehiculos\?q=porsche/);
   });
 });
+
+test.describe("rendimiento percibido", () => {
+  test("hacer scroll en la portada no descarga la escena 3D", async ({ page, isMobile }) => {
+    test.skip(isMobile, "La rueda del ratón solo existe en escritorio");
+    const heavy: string[] = [];
+    page.on("request", (r) => {
+      if (r.url().includes("car.glb")) heavy.push(r.url());
+    });
+    await page.goto("/");
+    for (let i = 0; i < 6; i++) {
+      await page.mouse.wheel(0, 400);
+      await page.waitForTimeout(200);
+    }
+    await page.waitForTimeout(2000);
+    expect(heavy).toEqual([]);
+    await expect(page.locator("[data-hero-mode]")).not.toHaveAttribute("data-hero-mode", "webgl");
+  });
+
+  test("al cambiar de página el listado vuelve al inicio de los resultados", async ({ page }) => {
+    await page.goto("/vehiculos");
+    await page.locator("[data-pagination]").scrollIntoViewIfNeeded();
+    await page.locator("[data-pagination] a[aria-label='Página 2']").click();
+    await expect(page).toHaveURL(/pagina=2/);
+    await expect
+      .poll(
+        () =>
+          page.evaluate(() => document.getElementById("resultados")!.getBoundingClientRect().top),
+        {
+          timeout: 5000,
+        },
+      )
+      .toBeLessThan(200);
+    await expect(page.locator("main article").first()).toBeInViewport();
+  });
+});

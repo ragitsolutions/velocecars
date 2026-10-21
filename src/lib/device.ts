@@ -37,21 +37,67 @@ export function supportsWebGL(): boolean {
 }
 
 /**
- * Resuelve con la primera interacción del usuario (ratón, toque, rueda, teclado o scroll)
- * o, si no la hay, pasado `timeoutMs`. Sirve para cargar la escena 3D sin competir con la
- * carga inicial (LCP, TBT): mientras tanto se ve el póster, que es el mismo fotograma.
+ * Resuelve cuando conviene cargar la escena 3D (~2,5 MB entre Three.js y el modelo) sin
+ * entorpecer: con el ratón moviéndose sobre la portada, o con la portada a la vista y
+ * `quietMs` sin scroll desde que terminó la carga. **Nunca por hacer scroll**: antes se cargaba
+ * con la primera interacción (incluido el scroll), justo cuando se bajaba hacia los coches;
+ * la página se congelaba un momento y la descarga competía con sus fotos.
+ * `quietMs` alto (6 s) también la mantiene fuera de la ventana que mide Lighthouse.
  */
-export function afterFirstInteraction(timeoutMs: number): Promise<void> {
+export function whenHeroIdle(el: HTMLElement, signal: AbortSignal, quietMs = 6000): Promise<void> {
   return new Promise((resolve) => {
-    const events = ["pointermove", "pointerdown", "wheel", "touchstart", "keydown", "scroll"];
+    let visible = false;
+    let loaded = document.readyState === "complete";
+    let lastActivity = performance.now();
     let timer = 0;
-    const done = () => {
-      events.forEach((e) => window.removeEventListener(e, done));
+    const scrollEvents = ["scroll", "wheel", "touchmove", "keydown"] as const;
+    // El fondo queda detrás del texto: el ratón se escucha en toda la sección.
+    const area = el.closest("section") ?? el;
+
+    const cleanup = () => {
       window.clearTimeout(timer);
-      resolve();
+      io.disconnect();
+      scrollEvents.forEach((e) => window.removeEventListener(e, onActivity));
+      window.removeEventListener("load", onLoad);
+      area.removeEventListener("pointermove", onPointer);
     };
-    events.forEach((e) => window.addEventListener(e, done, { once: true, passive: true }));
-    timer = window.setTimeout(done, timeoutMs);
+    const done = () => {
+      cleanup();
+      if (!signal.aborted) resolve();
+    };
+    const check = () => {
+      window.clearTimeout(timer);
+      if (!visible || !loaded) return;
+      const wait = quietMs - (performance.now() - lastActivity);
+      if (wait > 0) timer = window.setTimeout(check, wait);
+      else if ("requestIdleCallback" in window) requestIdleCallback(done, { timeout: 1000 });
+      else done();
+    };
+    const onActivity = () => {
+      lastActivity = performance.now();
+      check();
+    };
+    const onLoad = () => {
+      loaded = true;
+      lastActivity = performance.now();
+      check();
+    };
+    const onPointer = (e: PointerEvent) => {
+      if (e.pointerType === "mouse" && loaded) done();
+    };
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        visible = Boolean(entry && entry.intersectionRatio >= 0.4);
+        check();
+      },
+      { threshold: [0, 0.4] },
+    );
+    io.observe(el);
+    if (!loaded) window.addEventListener("load", onLoad, { once: true });
+    scrollEvents.forEach((e) => window.addEventListener(e, onActivity, { passive: true }));
+    area.addEventListener("pointermove", onPointer, { passive: true });
+    signal.addEventListener("abort", cleanup, { once: true });
   });
 }
 

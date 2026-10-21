@@ -1,10 +1,11 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { createContext, useCallback, useContext, useState, useTransition } from "react";
+import { createContext, useCallback, useContext, useEffect, useState, useTransition } from "react";
 import { inventoryHref } from "@/lib/inventory/search-params";
 import type { InventoryFacets } from "@/lib/inventory/query";
 import type { InventoryQuery } from "@/lib/inventory/types";
+import { scrollWindowTo } from "@/lib/scroll";
 import { persistedUi } from "./persisted-ui";
 
 export type InventoryView = "grid" | "list";
@@ -100,6 +101,23 @@ export function InventoryProvider({
     const brandLanding = pathname.match(/^\/vehiculos\/([a-z0-9-]+)$/)?.[1];
     navigate({ sort: current.sort, brands: brandLanding ? [brandLanding] : [] });
   }, [navigate, pathname, current.sort]);
+
+  // Al cambiar de página, subir al inicio de los resultados (no al principio de la página ni
+  // quedarse abajo). Fase de captura: antes de que el <Link> de Next gestione el clic.
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (!(e.target as Element | null)?.closest?.("[data-pagination] a")) return;
+      const results = document.getElementById("resultados");
+      if (!results) return;
+      const header =
+        document.querySelector("[data-site-header]")?.getBoundingClientRect().height ?? 0;
+      const top = results.getBoundingClientRect().top + window.scrollY - header - 16;
+      if (top < window.scrollY) scrollWindowTo(Math.max(0, top));
+    };
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
+  }, []);
 
   return (
     <InventoryContext.Provider

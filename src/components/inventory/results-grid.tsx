@@ -82,8 +82,9 @@ export function ResultsGrid({ items }: { items: { id: string; node: ReactNode }[
     <ul
       ref={list}
       className={cn(
-        // Tarjetas a partir de la 2.ª: no se maquetan hasta acercarse (menos trabajo antes del
-        // primer pintado). `auto` recuerda el alto real una vez pintadas.
+        // Desde la 2.ª tarjeta no se maquetan hasta acercarse (menos trabajo antes del primer
+        // pintado). Las que están en pantalla se pintan igual; en móvil, la foto de las
+        // siguientes empieza a descargarse a media pantalla de distancia.
         "grid gap-6 transition-opacity duration-300 [&>li:nth-child(n+2)]:[contain-intrinsic-height:auto_34rem] [&>li:nth-child(n+2)]:[content-visibility:auto]",
         view === "grid" ? "sm:grid-cols-2 xl:grid-cols-3" : "grid-cols-1",
         pending && "opacity-50",

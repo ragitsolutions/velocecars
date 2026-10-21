@@ -48,7 +48,7 @@ export async function InventoryView({
           </div>
         </aside>
 
-        <div className="min-w-0">
+        <div id="resultados" className="min-w-0">
           <Suspense>
             <InventoryToolbar />
             <ActiveFilters />

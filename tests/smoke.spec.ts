@@ -122,6 +122,8 @@ test.describe("navegación", () => {
   test("menú móvil", async ({ page, isMobile }) => {
     test.skip(!isMobile, "solo móvil");
     await page.goto("/");
+    // Un clic antes de hidratar se pierde.
+    await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
     await page.getByTestId("mobile-menu-trigger").click();
     const dialog = page.getByRole("dialog");
     await expect(dialog).toBeVisible();
@@ -132,6 +134,7 @@ test.describe("navegación", () => {
   test("megamenú de marcas", async ({ page, isMobile }) => {
     test.skip(!!isMobile, "solo escritorio");
     await page.goto("/");
+    await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
     await page.getByRole("button", { name: "Abrir menú de marcas" }).click();
     const menu = page.locator("#megamenu-vehiculos");
     await expect(menu).toBeVisible();
