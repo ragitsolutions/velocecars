@@ -19,7 +19,7 @@
 | Licencia           | **CC BY 4.0** — uso comercial permitido **con atribución**                                                                                                                                                                                                                                                                    |
 | Atribución         | En el pie de todas las páginas: «Modelo 3D de portada: “Car Concept” de Eric Chadwick (© Darmstadt Graphics Group), licencia CC BY 4.0, modificado», con enlaces a la obra y a la licencia. **No eliminar** mientras se use el modelo                                                                                         |
 | Cambios realizados | Variante de pintura fijada; **retirados los logotipos de Khronos y 3D Commerce** (excluidos de la licencia): la matrícula pasa a «VELOCE CARS» y el flanco del neumático queda liso; acabados de materiales ajustados en tiempo de ejecución; texturas a WebP 2048 px y geometría Draco (`scripts/3d/prepare-hero-model.mjs`) |
-| Derivados          | Póster y secuencia 360° (`public/hero/`) son renders de la escena con este modelo: misma atribución                                                                                                                                                                                                                           |
+| Derivados          | Pósteres y vídeos del giro (`public/hero/`) son renders de la escena con este modelo: misma atribución                                                                                                                                                                                                                        |
 | Archivo            | `public/models/car.glb` (1,69 MB). El original (11,8 MB) se descarga a `assets-src/`, no versionado                                                                                                                                                                                                                           |
 
 > Se valoró un zip de open3dmodel.com con un Porsche 911 GT2: **descartado**, era un modelo extraído del videojuego _Need for Speed: ProStreet_ (copyright de Electronic Arts).
@@ -33,25 +33,26 @@
 
 ## Librerías de terceros relevantes
 
-| Librería                                                           | Uso                      | Licencia                                                               |
-| ------------------------------------------------------------------ | ------------------------ | ---------------------------------------------------------------------- |
-| three.js                                                           | Motor 3D                 | MIT                                                                    |
-| @react-three/fiber, @react-three/drei, @react-three/postprocessing | Escena 3D en React       | MIT                                                                    |
-| postprocessing                                                     | Efectos de imagen        | Zlib                                                                   |
-| n8ao                                                               | Oclusión ambiental       | ISC                                                                    |
-| Decodificador Draco (`public/draco/`)                              | Descompresión del modelo | Apache 2.0 (Google), copiado de three.js                               |
-| Lenis                                                              | Scroll suave             | MIT                                                                    |
-| Lucide                                                             | Iconos                   | ISC                                                                    |
-| Radix UI (Dialog)                                                  | Modales accesibles       | MIT                                                                    |
-| Iconos Instagram / TikTok / WhatsApp                               | SVG en línea propios     | Uso nominativo de marcas para enlazar a los perfiles                   |
-| React Hook Form, @hookform/resolvers, Zod                          | Formularios y validación | MIT                                                                    |
-| Resend (SDK)                                                       | Envío de emails          | MIT (servicio de pago según volumen)                                   |
-| Google Maps (iframe en Contacto)                                   | Mapa                     | Términos de Google Maps; solo se carga con consentimiento o a petición |
-| @axe-core/playwright (solo desarrollo)                             | Tests de accesibilidad   | MPL 2.0; no se incluye en la web publicada                             |
+| Librería                                                           | Uso                          | Licencia                                                               |
+| ------------------------------------------------------------------ | ---------------------------- | ---------------------------------------------------------------------- |
+| three.js                                                           | Motor 3D                     | MIT                                                                    |
+| @react-three/fiber, @react-three/drei, @react-three/postprocessing | Escena 3D en React           | MIT                                                                    |
+| postprocessing                                                     | Efectos de imagen            | Zlib                                                                   |
+| n8ao                                                               | Oclusión ambiental           | ISC                                                                    |
+| Decodificador Draco (`public/draco/`)                              | Descompresión del modelo     | Apache 2.0 (Google), copiado de three.js                               |
+| Lenis                                                              | Scroll suave                 | MIT                                                                    |
+| Lucide                                                             | Iconos                       | ISC                                                                    |
+| Radix UI (Dialog)                                                  | Modales accesibles           | MIT                                                                    |
+| Iconos Instagram / TikTok / WhatsApp                               | SVG en línea propios         | Uso nominativo de marcas para enlazar a los perfiles                   |
+| React Hook Form, @hookform/resolvers, Zod                          | Formularios y validación     | MIT                                                                    |
+| Resend (SDK)                                                       | Envío de emails              | MIT (servicio de pago según volumen)                                   |
+| Google Maps (iframe en Contacto)                                   | Mapa                         | Términos de Google Maps; solo se carga con consentimiento o a petición |
+| @axe-core/playwright (solo desarrollo)                             | Tests de accesibilidad       | MPL 2.0; no se incluye en la web publicada                             |
+| mp4-muxer (solo desarrollo)                                        | Empaquetar el vídeo del hero | MIT; solo lo usa `scripts/3d/render-turntable.mjs`                     |
 
 ## Pendiente
 
-| Recurso                                     | Estado                                                                                                                                              |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vídeo del hero (`public/video/hero-loop.*`) | Opcional (D6): el respaldo sin WebGL ya es la secuencia 360° renderizada. Si el cliente graba un coche real en su estudio, sustituye a la secuencia |
-| Modelo 3D de un coche real del stock        | Opcional: modelo con licencia comercial o grabación propia (ver pendientes)                                                                         |
+| Recurso                              | Estado                                                                                                                                                  |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vídeo del hero                       | Hoy es un render del modelo CC BY. Si el cliente graba un coche real en su estudio (D6), sustituye a `public/hero/spin-*.mp4` sin licencias de terceros |
+| Modelo 3D de un coche real del stock | Opcional: modelo con licencia comercial o grabación propia (ver pendientes)                                                                             |

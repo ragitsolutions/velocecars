@@ -130,20 +130,18 @@ test.describe("legales y 404", () => {
 });
 
 test.describe("rendimiento percibido", () => {
-  test("hacer scroll en la portada no descarga la escena 3D", async ({ page, isMobile }) => {
-    test.skip(isMobile, "La rueda del ratón solo existe en escritorio");
+  test("la portada no descarga Three.js ni el modelo 3D", async ({ page }) => {
     const heavy: string[] = [];
     page.on("request", (r) => {
-      if (r.url().includes("car.glb")) heavy.push(r.url());
+      if (/car\.glb|\/draco\//.test(r.url())) heavy.push(r.url());
     });
     await page.goto("/");
-    for (let i = 0; i < 6; i++) {
-      await page.mouse.wheel(0, 400);
-      await page.waitForTimeout(200);
-    }
-    await page.waitForTimeout(2000);
+    await page.mouse.move(700, 400);
+    await page.mouse.move(720, 420);
+    await page.mouse.wheel(0, 1200);
+    await page.waitForTimeout(3500);
     expect(heavy).toEqual([]);
-    await expect(page.locator("[data-hero-mode]")).not.toHaveAttribute("data-hero-mode", "webgl");
+    await expect(page.locator("[data-hero] canvas")).toHaveCount(0);
   });
 
   test("al cambiar de página el listado vuelve al inicio de los resultados", async ({ page }) => {

@@ -151,21 +151,20 @@ test.describe("navegación", () => {
 });
 
 test.describe("home (Fase 2)", () => {
-  test("hero: el póster se pinta antes que la escena 3D", async ({ page }) => {
+  test("hero: el póster se pinta primero y el giro llega como vídeo", async ({ page }) => {
     await page.goto("/");
     const poster = page.locator("[data-hero] picture img");
     await expect(poster).toBeVisible();
     await expect(poster).toHaveAttribute("fetchpriority", "high");
     await expect(page.getByRole("heading", { level: 1 })).toContainText(/Coches de\s*alta gama/);
-  });
-
-  test("hero: secuencia 360° como alternativa sin WebGL", async ({ page }) => {
-    await page.goto("/?hero=sequence");
-    await expect(page.locator("[data-hero-mode='sequence']")).toBeAttached();
-    await expect(page.locator("[data-hero] img.cursor-grab")).toHaveAttribute(
-      "src",
-      /\/hero\/turntable\/(landscape|portrait)\/00\.webp/,
-    );
+    // El Chromium de Playwright no trae H.264: se comprueba el montaje, no la reproducción.
+    const video = page.locator("[data-hero] video");
+    await expect(video).toHaveAttribute("src", /\/hero\/spin-(landscape|portrait)\.mp4$/, {
+      timeout: 10_000,
+    });
+    await expect(video).toHaveAttribute("playsinline", "");
+    await expect(video).toHaveAttribute("loop", "");
+    expect(await video.evaluate((v: HTMLVideoElement) => v.muted)).toBe(true);
   });
 
   test("hero: con movimiento reducido solo se muestra el póster", async ({ browser }) => {
@@ -173,7 +172,8 @@ test.describe("home (Fase 2)", () => {
     const page = await context.newPage();
     await page.goto("/");
     await expect(page.locator("[data-hero-mode='static']")).toBeAttached();
-    expect(await page.locator("[data-hero] canvas").count()).toBe(0);
+    await page.waitForTimeout(3000);
+    expect(await page.locator("[data-hero] video").count()).toBe(0);
     await context.close();
   });
 

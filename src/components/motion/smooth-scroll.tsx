@@ -2,7 +2,7 @@
 
 import Lenis from "lenis";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import "lenis/dist/lenis.css";
 import { SCROLL_TO_EVENT } from "@/lib/scroll";
 
@@ -33,8 +33,12 @@ export function SmoothScroll() {
     };
   }, []);
 
-  // Cada página nueva empieza arriba (sin animar).
+  // Cada página nueva empieza arriba (sin animar). No al montarse: Lenis se carga en diferido y,
+  // si ya se había empezado a bajar, devolvía la página arriba de golpe.
+  const lastPathname = useRef(pathname);
   useEffect(() => {
+    if (lastPathname.current === pathname) return;
+    lastPathname.current = pathname;
     lenis?.scrollTo(0, { immediate: true, force: true });
   }, [pathname]);
 

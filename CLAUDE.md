@@ -20,7 +20,7 @@ npm run inventory:validate # valida data/vehicles.json con el esquema Zod
 npm run inventory:import   # DealCar → data/vehicles.json (+ data/legacy-redirects.json); --live para descargar
 npm run inventory:images   # copias locales WebP en public/vehicles (no versionadas)
 npm run 3d:model           # prepara public/models/car.glb (licencia y logos: ver docs/licencias-assets.md)
-npm run 3d:render          # renderiza póster y secuencia 360° del hero desde la escena (GPU)
+npm run 3d:render          # renderiza póster y vídeo del giro del hero desde la escena (GPU, Chrome)
 ```
 
 Antes de dar una fase por cerrada: `npm run lint`, `npm run build` y `npm run test:e2e` sin errores, y sin errores de consola ni de hidratación.
@@ -37,9 +37,11 @@ Antes de dar una fase por cerrada: `npm run lint`, `npm run build` y `npm run te
 
 ## Hero 3D y motion (Fase 2)
 
-- Escena: `src/components/three/car-scene.tsx` + acabados por material en `car-materials.ts`. Modo (webgl / sequence / static) en `src/lib/device.ts`; forzar con `?hero=…`.
-- Three.js (~2,5 MB con el modelo) se carga con `whenHeroIdle` (`src/lib/device.ts`): al mover el ratón sobre la portada, o con la portada a la vista y 6 s sin scroll. **Nunca por hacer scroll**: congelaba la página al bajar y competía con las fotos de los coches. No adelantarlo: hundía el TBT. El póster `/hero/poster-*.webp` es el mismo fotograma que la escena.
-- Tras cambiar modelo, materiales, luces o cámara: `npm run 3d:render` (con `RENDER_TOOLS=1 npm run dev` en marcha) para regenerar póster, secuencia 360° y `hero-assets.ts`. Cambiar el coche: `npm run 3d:model -- --source mi-coche.glb`.
+- **El hero es un vídeo** (`public/hero/spin-{landscape,portrait}.mp4`, ~0,87 MB, una vuelta en bucle) renderizado desde la escena 3D; la web **no carga Three.js**. Antes la escena corría en el navegador (~2,5 MB y compilación de shaders): el giro tardaba en arrancar y en algunos móviles no llegaba a moverse. `hero-stage.tsx` pinta el póster (LCP) y, tras la carga, el vídeo con fundido; se pausa fuera de pantalla; con movimiento reducido o ahorro de datos solo el póster (`src/lib/device.ts`, forzar con `?hero=video|static`).
+- Escena (solo para renderizar): `src/components/three/car-scene.tsx` + acabados por material en `car-materials.ts`, servida en `/render/turntable` con `RENDER_TOOLS=1`.
+- El póster `/hero/poster-*.webp` es el primer fotograma del vídeo: el relevo no se nota.
+- Tras cambiar modelo, materiales, luces o cámara: `npm run 3d:render` (con `RENDER_TOOLS=1 npm run dev` o `next start` en marcha) para regenerar pósteres, vídeos y `hero-assets.ts`. Codifica H.264 con WebCodecs en el Chrome instalado (Chromium no codifica H.264) y calidad constante `--avc-q 32`. VP9/WebM se descartó: el codificador del navegador pesaba 4–6 MB con calidad constante y emborronaba el primer fotograma con bitrate. Cambiar el coche: `npm run 3d:model -- --source mi-coche.glb`.
+- El componente de scroll suave (Lenis) y el cursor solo se cargan con ratón (`deferred-extras.tsx`); en táctil no aportan y el bucle de Lenis gastaba CPU. Su efecto «volver arriba al cambiar de página» no debe actuar al montarse: Lenis llega en diferido y devolvía arriba a quien ya había bajado.
 - El **crédito CC BY 4.0 del modelo** está en el footer: no quitarlo mientras se use «Car Concept».
 - Lecciones: el reflector de Drei desplaza el reflejo (se usa geometría espejada bajo un suelo semitransparente); en ángulo rasante cualquier suelo con brillo especular se ve gris (suelo Lambert); el tono AgX levanta los negros (se usa Neutral); el `pin` de GSAP reinserta el nodo y retrasa el LCP (se usa `position: sticky`; GSAP ya no se usa).
 - El banner de cookies se renderiza en el servidor; `CONSENT_BOOT_SCRIPT` (en `<head>`) lo oculta antes de pintar si hay consentimiento. Tiene altura mínima reservada para no causar CLS al cargar las fuentes.

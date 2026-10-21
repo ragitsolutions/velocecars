@@ -1,6 +1,6 @@
 /**
  * Recursos estáticos del hero. Este archivo lo regenera scripts/3d/render-turntable.mjs
- * (póster y secuencia 360° renderizados desde la propia escena 3D). No editar a mano.
+ * (póster y vídeo del giro renderizados desde la propia escena 3D). No editar a mano.
  */
 export const HERO_POSTER = {
   landscape: {
@@ -19,8 +19,16 @@ export const HERO_POSTER = {
   },
 } as const;
 
-export const HERO_TURNTABLE = {
-  frames: 36,
-  landscape: "/hero/turntable/landscape",
-  portrait: "/hero/turntable/portrait",
+/** Una vuelta completa en bucle (20 s a 24 fps), H.264 en MP4. */
+export const HERO_VIDEO = {
+  landscape: {
+    src: "/hero/spin-landscape.mp4",
+    width: 1280,
+    height: 720,
+  },
+  portrait: {
+    src: "/hero/spin-portrait.mp4",
+    width: 720,
+    height: 1280,
+  },
 } as const;

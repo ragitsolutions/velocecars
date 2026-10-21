@@ -65,7 +65,7 @@ Escala fluida 375 → 1440 px con `clamp()`: `text-xs` (12–13 px) … `text-6x
 | `VehicleCard`             | `components/inventory/vehicle-card.tsx`       | Foto 4:3, distintivos, prestaciones al hover, cursor «Ver»                                                       |
 | `Header` / `Footer`       | `components/layout/`                          | Cabecera transparente → sólida; megamenú; footer con crédito CC BY del modelo 3D                                 |
 | `CookieBanner`            | `components/layout/cookie-banner.tsx`         | AEPD; se renderiza en el servidor (no retrasa el LCP) y un script en `<head>` lo oculta si ya hay consentimiento |
-| Hero 3D                   | `components/home/hero/`, `components/three/`  | Ver «Hero» abajo                                                                                                 |
+| Hero                      | `components/home/hero/`, `components/three/`  | Ver «Hero» abajo                                                                                                 |
 | Secciones de la home      | `components/home/*.tsx`                       | Textos editables en `src/content/home.ts`                                                                        |
 | `PageHero`                | `components/layout/page-hero.tsx`             | Cabecera de páginas interiores: foto a sangre y velo; texto arriba en móvil (evita CLS), abajo desde tableta     |
 | Formularios               | `components/forms/`                           | Línea inferior como campo, chips para opciones, consentimientos RGPD y capa de información básica (`form-parts`) |
@@ -92,9 +92,10 @@ Escala fluida 375 → 1440 px con `clamp()`: `text-xs` (12–13 px) … `text-6x
 
 ## Hero
 
-- **Escena 3D** (`components/three/car-scene.tsx`): coche girando (20 s por vuelta) en un estudio negro hecho con _lightformers_ (sin HDRI externo), cámara baja de teleobjetivo, suelo pulido con **reflejo por geometría espejada** (el reflector en tiempo real de Drei desplazaba el reflejo), sombra de oclusión bajo el coche y postprocesado en calidad alta: oclusión ambiental N8AO, bloom solo en faros, tono neutro Khronos PBR y viñeta. Acabados por material en `car-materials.ts`.
-- **Carga diferida**: el póster (`/hero/poster-*.webp`, el mismo fotograma que la escena) es el LCP; Three.js se descarga al mover el ratón sobre la portada o con la portada a la vista y 6 s sin scroll (nunca al hacer scroll).
-- **Modos** (`lib/device.ts`): `webgl`; `sequence` (36 fotogramas 360° controlados por scroll y arrastre) en dispositivos de gama baja, sin GPU real o con batería baja; `static` con movimiento reducido. Forzar con `?hero=webgl|sequence|static`.
+- **Vídeo del giro** (`public/hero/spin-*.mp4`): una vuelta de 20 s en bucle, horizontal (1280×720) y vertical (720×1280), renderizada desde la escena 3D con `npm run 3d:render`. La web no ejecuta la escena: así el giro arranca enseguida también en móvil.
+- **Escena 3D** (`components/three/car-scene.tsx`, solo para renderizar): coche girando (20 s por vuelta) en un estudio negro hecho con _lightformers_ (sin HDRI externo), cámara baja de teleobjetivo, suelo pulido con **reflejo por geometría espejada** (el reflector en tiempo real de Drei desplazaba el reflejo), sombra de oclusión bajo el coche y postprocesado en calidad alta: oclusión ambiental N8AO, bloom solo en faros, tono neutro Khronos PBR y viñeta. Acabados por material en `car-materials.ts`.
+- **Carga**: el póster (`/hero/poster-*.webp`, primer fotograma del vídeo) es el LCP; el vídeo empieza tras la carga de la página (o a los 2,5 s como mucho), entra con un fundido y se pausa fuera de pantalla.
+- **Modos** (`lib/device.ts`): `video`; `static` (solo póster) con movimiento reducido, ahorro de datos o red 2G. Forzar con `?hero=video|static`.
 - **Scroll**: el hero queda fijo (CSS `sticky`) 80 vh mientras la cámara se aleja y el texto se funde.
 - Rendimiento medido (Lighthouse móvil, build de producción, 20/10/2026): **rendimiento 89–92**, CLS 0, TBT 80–140 ms, 596 KB en la primera carga. LCP simulado 3,1–3,7 s (observado 0,25 s): se ajusta en la Fase 5.
 

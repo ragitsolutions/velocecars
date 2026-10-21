@@ -134,11 +134,13 @@ pulsa «Cargar mapa».
 
 ---
 
-## 5. El coche 3D de la portada
+## 5. El coche de la portada
 
-La portada muestra un coche 3D girando (modelo «Car Concept», licencia CC BY 4.0: **el crédito
-del pie de página es obligatorio** mientras se use). Para móviles sin 3D hay una secuencia de
-36 fotogramas del mismo coche y, mientras carga, un póster.
+La portada muestra un coche girando (modelo 3D «Car Concept», licencia CC BY 4.0: **el crédito
+del pie de página es obligatorio** mientras se use). No es una escena 3D en el navegador sino un
+**vídeo** de una vuelta en bucle (~0,87 MB, horizontal para ordenador y vertical para móvil)
+renderizado a partir del modelo: así arranca enseguida y gira también en cualquier móvil.
+Mientras carga se ve un póster que es el primer fotograma del vídeo.
 
 ### Cambiar el coche por otro modelo 3D
 
@@ -150,7 +152,8 @@ del pie de página es obligatorio** mientras se use). Para móviles sin 3D hay u
    npm run 3d:model -- --source ruta/al/coche.glb
    ```
 
-3. Regenerad póster y secuencia 360° (necesita la web en marcha con la herramienta de render):
+3. Regenerad pósteres y vídeos (necesita la web en marcha con la herramienta de render y
+   Google Chrome instalado):
 
    ```bash
    RENDER_TOOLS=1 npm run dev        # en una terminal
@@ -162,10 +165,9 @@ del pie de página es obligatorio** mientras se use). Para móviles sin 3D hay u
 ### Usar un vídeo de uno de vuestros coches
 
 Si grabáis un coche real girando en el estudio (lo más realista y sin licencias de terceros):
-36 fotos a intervalos de 10° con la cámara fija, o un vídeo de una vuelta completa. Con eso se
-sustituyen los fotogramas de `public/hero/turntable/` y el póster `public/hero/poster-*.webp`
-(mismos nombres y tamaños), y se puede desactivar el 3D en `src/lib/device.ts`. Es un ajuste
-técnico sencillo; pasadnos el material.
+una vuelta completa con la cámara fija, en horizontal y en vertical. Se sustituyen
+`public/hero/spin-landscape.mp4` y `spin-portrait.mp4` (H.264, ~1 MB cada uno) y los pósteres
+`public/hero/poster-*.webp` por su primer fotograma. Pasadnos el material y lo preparamos.
 
 ---
 

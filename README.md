@@ -4,7 +4,7 @@ Web de [Veloce Cars](https://www.velocecars.es): vehículos premium y de lujo y 
 en Pozuelo de Alarcón (Madrid). Sustituye a la web actual alojada en DealCar.
 
 Next.js 15 (App Router, RSC) · TypeScript estricto · Tailwind CSS v4 · CSS + Web Animations + Lenis ·
-React Three Fiber · React Hook Form + Zod · Resend · Playwright.
+React Hook Form + Zod · Resend · Playwright.
 
 ## Requisitos
 
@@ -35,11 +35,11 @@ La guía de estilo navegable está en `/guia-de-estilo`.
 | `npm run inventory:validate`  | Valida `data/vehicles.json` con el esquema de la web                                                     |
 | `npm run inventory:images`    | Descarga las fotos de los vehículos a `public/vehicles/` (WebP ≤ 1920 px)                                |
 | `npm run 3d:model`            | Prepara el modelo 3D del hero (`public/models/car.glb`)                                                  |
-| `npm run 3d:render`           | Renderiza el póster y la secuencia 360° del hero                                                         |
+| `npm run 3d:render`           | Renderiza los pósteres y el vídeo del giro del hero desde la escena 3D (necesita Chrome instalado)       |
 
 ## Qué incluye
 
-- **Portada** centrada en el stock: hero con coche 3D (con secuencia 360° y póster de respaldo), buscador, stock destacado, vender tu coche, servicios, preguntas frecuentes y contacto.
+- **Portada** centrada en el stock: hero con el coche girando (vídeo renderizado desde una escena 3D, ~0,87 MB, con póster), buscador, stock destacado, vender tu coche, servicios, preguntas frecuentes y contacto.
 - **Inventario** (`/vehiculos`, `/vehiculos/[marca]`): filtros en la URL, orden, vista rejilla/lista, paginación, favoritos, comparador de hasta 3 coches.
 - **Ficha** (`/vehiculos/[marca]/[slug]`): galería con visor a pantalla completa, ficha técnica, equipamiento por categorías, garantía, calculadora de financiación, formulario precargado, similares, impresión, JSON-LD `Car` + `Offer`.
 - **Páginas**: vender tu coche (tasación en 3 pasos con fotos), servicios, financiación (calculadora + estudio), nosotros, contacto con cita previa y mapa con consentimiento, textos legales y 404 con buscador.

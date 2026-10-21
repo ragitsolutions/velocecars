@@ -1,22 +1,16 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { getImageProps } from "next/image";
 import { preload } from "react-dom";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { detectHeroMode, whenHeroIdle, type HeroMode } from "@/lib/device";
+import { useEffect, useRef, useState } from "react";
+import { detectHeroMode, type HeroMode } from "@/lib/device";
 import { cn } from "@/lib/utils/format";
-import { heroState } from "./hero-progress";
-import { TurntableSequence } from "./turntable-sequence";
-import { HERO_POSTER } from "./hero-assets";
-
-// Three.js (~600 KB) se carga aparte, solo en el navegador y cuando no estorba (whenHeroIdle).
-const CarScene = dynamic(() => import("@/components/three/car-scene"), { ssr: false });
+import { HERO_POSTER, HERO_VIDEO } from "./hero-assets";
 
 const PORTRAIT_MEDIA = "(max-aspect-ratio: 1/1)";
 const LANDSCAPE_MEDIA = "(min-aspect-ratio: 1/1)";
 
-function Poster({ hidden }: { hidden: boolean }) {
+function Poster() {
   // Dirección de arte: encuadre horizontal en escritorio y vertical en móvil.
   const common = { alt: "", sizes: "100vw" } as const;
   const { props: desktop } = getImageProps({
@@ -51,86 +45,120 @@ function Poster({ hidden }: { hidden: boolean }) {
         alt=""
         loading="eager"
         fetchPriority="high"
-        className={cn(
-          "absolute inset-0 size-full object-cover transition-opacity duration-[1200ms] ease-luxe",
-          hidden && "opacity-0",
-        )}
+        className="absolute inset-0 size-full object-cover"
       />
     </picture>
   );
 }
 
-function Loader() {
-  return (
-    <div
-      role="status"
-      className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3 text-[0.625rem] tracking-[0.3em] text-subtle uppercase"
-    >
-      <span className="relative block h-px w-24 overflow-hidden bg-line">
-        <span className="absolute inset-y-0 left-0 w-1/3 bg-accent motion-safe:animate-[loader_1.4s_var(--ease-luxe)_infinite]" />
-      </span>
-      Preparando el estudio
-    </div>
-  );
+/**
+ * Espera a que termine la carga de la página (o, como mucho, 2,5 s: si alguna foto tarda, el
+ * giro no tiene por qué esperarla) y a un momento libre del navegador.
+ */
+function afterLoadIdle(signal: AbortSignal): Promise<void> {
+  return new Promise((resolve) => {
+    let started = false;
+    const idle = () => {
+      if (started || signal.aborted) return;
+      started = true;
+      // Safari no tiene requestIdleCallback.
+      if (typeof requestIdleCallback === "function") {
+        requestIdleCallback(() => resolve(), { timeout: 1500 });
+      } else setTimeout(resolve, 300);
+    };
+    if (document.readyState === "complete") idle();
+    else {
+      window.addEventListener("load", idle, { once: true });
+      setTimeout(idle, 2500);
+    }
+  });
 }
 
+/**
+ * Fondo del hero: póster (LCP) y, tras la carga, el giro del coche como vídeo en bucle
+ * (renderizado desde la escena 3D con scripts/3d/render-turntable.mjs). Antes la escena 3D se
+ * ejecutaba en el navegador: ~2,5 MB y compilación de shaders que tardaba en arrancar y en
+ * algunos móviles no llegaba a moverse. El vídeo pesa ~1,2 MB y se decodifica por hardware.
+ */
 export function HeroStage() {
   const [mode, setMode] = useState<HeroMode | null>(null);
-  const [ready, setReady] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const [quality, setQuality] = useState<"high" | "low">("high");
+  const [playing, setPlaying] = useState(false);
+  const [portrait, setPortrait] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const onReady = useCallback(() => setReady(true), []);
+  const video = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const abort = new AbortController();
-    // En móvil: suelo sin reflejo en tiempo real y menos píxeles (batería y temperatura).
-    if (window.matchMedia("(pointer: coarse)").matches) setQuality("low");
-    detectHeroMode().then((m) => {
-      if (abort.signal.aborted) return;
-      if (m === "webgl" && ref.current) {
-        // El póster es el mismo fotograma que la escena: el relevo no se nota.
-        whenHeroIdle(ref.current, abort.signal).then(() => setMode("webgl"));
-      } else setMode(m);
-    });
-    return () => abort.abort();
+    const mql = window.matchMedia(PORTRAIT_MEDIA);
+    const onOrientation = () => {
+      setPortrait(mql.matches);
+      setPlaying(false); // vídeo de la otra orientación: vuelve a entrar con fundido
+    };
+    onOrientation();
+    mql.addEventListener("change", onOrientation);
+    const m = detectHeroMode();
+    if (m === "static") setMode(m);
+    else afterLoadIdle(abort.signal).then(() => setMode(m));
+    return () => {
+      abort.abort();
+      mql.removeEventListener("change", onOrientation);
+    };
   }, []);
 
-  // Pausa el render 3D cuando el hero no se ve (ahorra batería y CPU).
+  // Reproducir solo con el hero a la vista (ahorra batería). Si el navegador bloquea la
+  // reproducción automática (p. ej. iPhone en ahorro de energía), arranca con el primer toque.
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(([entry]) => setVisible(Boolean(entry?.isIntersecting)));
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  // Parallax: posición del puntero normalizada en [-1, 1].
-  useEffect(() => {
-    const onMove = (e: PointerEvent) => {
-      if (e.pointerType !== "mouse") return;
-      heroState.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-      heroState.pointer.y = -((e.clientY / window.innerHeight) * 2 - 1);
+    const v = video.current;
+    if (mode !== "video" || !el || !v) return;
+    // iOS solo lo reproduce automáticamente si está silenciado como atributo (React solo fija
+    // la propiedad).
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute("muted", "");
+    let visible = true;
+    const tryPlay = () => {
+      if (visible) v.play().catch(() => undefined);
     };
-    window.addEventListener("pointermove", onMove, { passive: true });
-    return () => window.removeEventListener("pointermove", onMove);
-  }, []);
+    const io = new IntersectionObserver(([entry]) => {
+      visible = Boolean(entry?.isIntersecting);
+      if (visible) tryPlay();
+      else v.pause();
+    });
+    io.observe(el);
+    const onFirstTouch = () => tryPlay();
+    window.addEventListener("pointerdown", onFirstTouch, { once: true, passive: true });
+    return () => {
+      io.disconnect();
+      window.removeEventListener("pointerdown", onFirstTouch);
+    };
+  }, [mode, portrait]);
+
+  const src = portrait ? HERO_VIDEO.portrait.src : HERO_VIDEO.landscape.src;
 
   return (
     <div ref={ref} className="absolute inset-0 -z-10 bg-bg" data-hero-mode={mode ?? "pending"}>
-      <Poster hidden={ready} />
-      {mode === "webgl" && (
-        <div
+      <Poster />
+      {mode === "video" && (
+        <video
+          ref={video}
+          key={src}
+          src={src}
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="auto"
+          disablePictureInPicture
+          aria-hidden
+          tabIndex={-1}
+          onPlaying={() => setPlaying(true)}
           className={cn(
-            "absolute inset-0 transition-opacity duration-[1200ms]",
-            !ready && "opacity-0",
+            "absolute inset-0 size-full object-cover transition-opacity duration-700 ease-luxe",
+            !playing && "opacity-0",
           )}
-        >
-          <CarScene onReady={onReady} paused={!visible} quality={quality} />
-        </div>
+        />
       )}
-      {mode === "sequence" && <TurntableSequence onReady={onReady} />}
-      {mode === "webgl" && !ready && <Loader />}
     </div>
   );
 }
