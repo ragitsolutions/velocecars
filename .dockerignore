@@ -1,0 +1,11 @@
+.git
+.next
+node_modules
+.env*
+!.env.example
+assets-src
+test-results
+playwright-report
+.lighthouseci
+*.zip
+scripts/.*-tmp.mjs

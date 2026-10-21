@@ -1,0 +1,861 @@
+{
+ "dealer": {
+  "dealershipName": "Veloce Cars",
+  "dealerId": "1546932f-9962-4e19-954a-a5676adf72bd",
+  "countryCode": "ES",
+  "address": {
+   "apartment": null,
+   "city": "Pozuelo de Alarcón",
+   "country": "España",
+   "formattedAddress": "Avenida de Luis García Cereceda 5, 28223, Pozuelo de Alarcón, Madrid, España",
+   "number": null,
+   "placeId": null,
+   "postalCode": "28223",
+   "region": "Madrid",
+   "street": "Avenida de Luis García Cereceda 5"
+  },
+  "phonePrefix": "+34",
+  "phoneNumber": "619625040",
+  "whatsappNumber": "618040537",
+  "email": "velocecars1@gmail.com",
+  "dealerImageUrl": "https://storage.googleapis.com/download/storage/v1/b/dealer-images/o/1546932f-9962-4e19-954a-a5676adf72bd.png?generation=1763722489375969&alt=media",
+  "infobipNumber": null,
+  "contactEmail": "contacto@velocecars.es",
+  "web": null,
+  "description": "En Veloce Cars hacemos que vender o comprar tu coche en Pozuelo de Alarcón sea rápido, seguro y sin complicaciones. Nos encargamos de todo el proceso de gestión de venta y ofrecemos asesoramiento experto para que tomes decisiones con total confianza. Con un trato cercano y profesional, nuestro objetivo es que disfrutes de una experiencia clara, transparente y totalmente personalizada.",
+  "adminUserId": "4QGLxyf60sfupuYGyjUSwyzVdAJ2",
+  "locations": [
+   {
+    "address": {
+     "street": "Avenida de Luis García Cereceda 5",
+     "number": null,
+     "apartment": null,
+     "postalCode": "28223",
+     "country": "España",
+     "region": "Madrid",
+     "city": "Pozuelo de Alarcón"
+    },
+    "email": "velocecars1@gmail.com",
+    "fixPhone": null,
+    "googleMapsUrl": null,
+    "googlePlace": null,
+    "googlePlaceId": null,
+    "hours": null,
+    "locationId": "e440889b-6591-44d9-93f9-8f06b9f3899b",
+    "mobilePhone": "619625040",
+    "mobilePhonePrefix": null,
+    "name": "Tienda Principal"
+   }
+  ],
+  "socialNetworks": {
+   "facebookUrl": null,
+   "instagramUrl": "/veloce_cars",
+   "instagramUrl2": null,
+   "linkedinUrl": null,
+   "twitterUrl": null,
+   "tiktokUrl": "velocecar",
+   "googleMapsUrl": "https://www.google.com/maps/place/Av.+de+Luis+Garc%C3%ADa+Cereceda,+5,+28223+Pozuelo+de+Alarc%C3%B3n,+Madrid/@40.4041561,-3.7922205,3a,75y,110.04h,81.37t/data=!3m7!1e1!3m5!1sIPu8eLYzdqjsn4lvgO9d1A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D8.627461762817703%26panoid%3DIPu8eLYzdqjsn4lvgO9d1A%26yaw%3D110.03560647044789!7i16384!8i8192!4m15!1m8!3m7!1s0xd4188848c719c2b:0x898c6380ce140184!2sAv.+de+Luis+Garc%C3%ADa+Cereceda,+5,+28223+Pozuelo+de+Alarc%C3%B3n,+Madrid!3b1!8m2!3d40.4038716!4d-3.7921312!16s%2Fg%2F11s7lp9sbm!3m5!1s0xd4188848c719c2b:0x898c6380ce140184!8m2!3d40.4038716!4d-3.7921312!16s%2Fg%2F11s7lp9sbm?authuser=0&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
+   "tiktokDefault": false,
+   "instagramDefault": true
+  },
+  "bookingConfig": {
+   "amount": "100000",
+   "description": "Reserva por 1000€, No pierdas la oportunidad.",
+   "bookingDays": "15",
+   "active": false,
+   "refundable": false
+  }
+ },
+ "webConfig": {
+  "id": "c9c76d73-c042-4427-9841-23bc78cf16b5",
+  "dealerId": "1546932f-9962-4e19-954a-a5676adf72bd",
+  "homepage": {
+   "id": "11cb5570-e213-4506-b229-84e1a0119d51",
+   "frontPage": {
+    "id": "1f8cbd14-1aa0-497a-8282-72c34e9e17ed",
+    "modules": [
+     {
+      "id": "03f89f25-1ceb-47cf-9c5a-c1832d9cbc6b",
+      "title": "VELOCE CARS",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2F03f89f25-1ceb-47cf-9c5a-c1832d9cbc6b?alt=media&token=a3ad0ac0-c53a-45df-b87c-9d8bcb08e7d4",
+      "description": "Asesoría Automovilística",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": true
+   },
+   "content": {
+    "id": "3150dcc4-a182-4988-a253-8d82a0c993ab",
+    "modules": [
+     {
+      "id": "ffa8e1e7-c6c1-4f58-8353-45880a212162",
+      "title": "Deja tu coche en nuestras manos",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2F3150dcc4-a182-4988-a253-8d82a0c993ab?alt=media&token=c918176a-28fe-4bb2-923a-6635b1ee2a31",
+      "description": "Confía en Veloce Cars para gestionar la venta de tu vehículo. Desde la valoración inicial hasta la entrega final, nos ocupamos de todo, con la posibilidad de dejar tu coche en nuestra exposición para maximizar su visibilidad y acelerar la venta.",
+      "button": "Tasa tu vehículo",
+      "buttonUrl": "/sell",
+      "active": false
+     }
+    ],
+    "active": false
+   },
+   "proposal": {
+    "id": "66820abd-a8cc-4a00-994f-faebf47bcbe0",
+    "title": "ASESORÍA AUTOMOVILÍSTICA",
+    "description": "Veloce Cars se dedica principalmente a gestionar todo el proceso de venta y postventa de vehículos. Cuidando cada detalle y a cada cliente.",
+    "modules": [
+     {
+      "id": "Ver coches",
+      "title": null,
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2F66820abd-a8cc-4a00-994f-faebf47bcbe0?alt=media&token=98fe0c99-ca4f-4bc7-afdc-4624fce306bf",
+      "description": null,
+      "button": "Ver coches",
+      "buttonUrl": "/buy",
+      "active": false
+     }
+    ],
+    "active": true
+   },
+   "offer": {
+    "id": "4d3fadbe-fa5b-4180-8696-526acedc485e",
+    "title": "EN VENTA",
+    "description": "En Veloce Cars contamos con un stock exclusivo de coches de alta gama, seleccionados cuidadosamente.",
+    "offersVehicles": null,
+    "active": true
+   },
+   "services": {
+    "id": "452348dc-3253-4e23-815c-038c07df6334",
+    "title": "Nuestros servicios",
+    "description": "Personalización y servicios a medida para cada situación.",
+    "imageUrl": null,
+    "modules": [
+     {
+      "id": "5943c42c-4d78-4d99-9383-e8043f20e3e3",
+      "title": "REVISIÓN DEL VEHÍCULO",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2F5943c42c-4d78-4d99-9383-e8043f20e3e3?alt=media&token=3745ffb9-3526-43cf-967e-c3a57ecfe217",
+      "description": "Revisión del funcionamiento y estado del vehículo.",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "caca3955-e10f-484c-8b55-c08972bd4ce7",
+      "title": "REPORTAJE AUDIOVISUAL",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2Fcaca3955-e10f-484c-8b55-c08972bd4ce7?alt=media&token=5adf559d-08d2-410b-abc3-a859f7c64a57",
+      "description": "Fotografías y vídeos del vehículo para una mejor difusión.\n",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "876f5dd1-99ba-41e1-844d-d10d62ce1443",
+      "title": "ESTUDIO DE MERCADO",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2F876f5dd1-99ba-41e1-844d-d10d62ce1443?alt=media&token=40044603-139c-42cc-b0bc-99bed0286bd0",
+      "description": "Venta del vehículo en un precio óptimo.",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "aa1e8208-2e04-444c-a13a-563e2a8d7e2a",
+      "title": "PUBLICIDAD Y ANUNCIOS",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2Faa1e8208-2e04-444c-a13a-563e2a8d7e2a?alt=media&token=4b63a089-f1b1-40ba-a0b5-11719718ddd2",
+      "description": "Máxima visibilidad y difusión del vehíuclo.\n",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "415123d5-343c-4d7e-a5e1-962d18d6945e",
+      "title": "ATENCIÓN AL CLIENTE",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2F415123d5-343c-4d7e-a5e1-962d18d6945e?alt=media&token=85c891d8-cb97-44aa-bad3-5d18aab80379",
+      "description": "Trato cercano y profesional para todos los interesados.\n",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "16f643b6-d06d-4125-95b1-5d9ab6b549d0",
+      "title": "TRÁMITES Y GARANTÍAS",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2F16f643b6-d06d-4125-95b1-5d9ab6b549d0?alt=media&token=33fd8fa2-0ce6-4516-8a7c-4f1ce2fb8e7e",
+      "description": "Ejecutamos todos los trámites de transferencia y ofrecemos Garantía Premium.\n",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": true
+   },
+   "testimonial": {
+    "id": "452348dc-3253-4e23-815c-038c07df6334",
+    "title": "Testimonios",
+    "description": "Valoraciones de nuestros clientes",
+    "modules": null,
+    "active": false,
+    "placeId": "ChIJfUoEN_0pQg0Rzf4yGRUWru8"
+   },
+   "googlePlaces": {
+    "rating": 4.8,
+    "url": "https://maps.google.com/?cid=17270765900885327565",
+    "googleReviews": [
+     {
+      "user": "M&S Coches Ocasión",
+      "stars": 5,
+      "comment": "Estamos bastante contentos por contratar los servicios de Dealcar. Es una empresa de profesionales que conocen perfectamente el sector y eso nos ayuda mucho a los concesionaros a poder gestionar nuestra actividad. Nos ofrecen soluciones que realmente necesitamos para poder agilizar nuestro día a día y lo mas importante en conseguir más ventas. De momento para nosotros tienen un 10. La Atención al cliente es excelente. Esperamos seguir con ellos mucho tiempo.",
+      "avatar": "https://lh3.googleusercontent.com/a-/ALV-UjUPYokH3peOZ8SyLLExwuNhbcYjzxL1pB01Puka7NCm17Xnx_BhzA=s128-c0x00000000-cc-rp-mo"
+     },
+     {
+      "user": "Wallacar",
+      "stars": 5,
+      "comment": "Llevamos ya un año trabajando con ellos en nuestro concesionario y la experiencia ha sido excelente desde el primer día.\n\nEl software nos ayuda muchísimo en la gestión diaria y tiene todo lo que necesitamos para controlar y agilizar los distintos procesos del negocio. Además, la atención y el soporte son muy rápidos y resolutivos, algo que valoramos muchísimo en el día a día.\n\nLo que más destacamos es que están constantemente innovando, mejorando la plataforma y lanzando nuevas funciones y herramientas que realmente nos ayudan a trabajar de forma más cómoda y eficiente.\n\nSin duda, una empresa muy recomendable para cualquier profesional del sector que busque una solución seria, moderna y en constante evolución.",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocIw0SNCbH_WSKib_7zCGMfGnxLAjGaz8UWu9GYhTibYIh83kA=s128-c0x00000000-cc-rp-mo"
+     },
+     {
+      "user": "agatino maniscalco",
+      "stars": 5,
+      "comment": "Llevamos 9 meses con el servicio de dealcar y realmente hemos dado un cambio significativo al modelo al proceso de administración comercial gracias a todas su  contribución. El personal que está en el back office siempre esta a disposición y prestar la mayor colaboración  en lo que necesitamos. Espero  que siempre continúen dando el servicio que hasta hoy nos están brindando. Sencillamente espléndido.\nDa.gusto de trabajar con un equipo de jóvenes emprendedores mucho éxito para los futuros años.",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocJ9kuZoM3jryu5-ZBYVWhDbnclzok4BR7u3ZZvjtNAjm8sm6Q=s128-c0x00000000-cc-rp-mo"
+     },
+     {
+      "user": "Vicente Barat",
+      "stars": 5,
+      "comment": "Quiero destacar el excelente trabajo de Dealcar. Estoy súper satisfecho con el servicio recibido desde el primer momento. Son profesionales, rápidos y se implican de verdad en ayudarte a vender y gestionar los vehículos de ocasión de forma eficiente.\n\nAdemás de la gestión del stock y las ventas, también me llevan la web y la verdad es que se nota muchísimo la diferencia: más visibilidad, mejor imagen y todo mucho más organizado. Siempre están atentos, responden rápido y aportan soluciones prácticas.\n\nDa gusto trabajar con una empresa seria y cercana que entiende perfectamente el sector del automóvil. Totalmente recomendables.",
+      "avatar": "https://lh3.googleusercontent.com/a-/ALV-UjW9tZdeOStW8kxYNP6d9trrZpPhB3d-_A_5SRqHBnzDVTrXDXlF=s128-c0x00000000-cc-rp-mo"
+     },
+     {
+      "user": "Sergio Montalvo",
+      "stars": 5,
+      "comment": "Llevo trabajando con ellos unos meses y quiero destacar la apertura de mente para seguir desarrollando un programa de gestión integral del VO, para los profesionales de este sector. El precio de momento es muy razonable y seguro que será un \"producto premium\" en el futuro.\nSeguir así!!!",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocKYZbcryhCmEDlC7gPIwixnq_ER5PF5t7E-vWAfg86MvICQeg=s128-c0x00000000-cc-rp-mo-ba3"
+     }
+    ]
+   },
+   "aboutUs": {
+    "id": "f5a76532-f372-40a7-b53b-45dc62651d64",
+    "title": "VELOCE CARS",
+    "subtitle": null,
+    "image": null,
+    "description": "Entedemos la importancia de tu coche... y nos aseguramos de transmitirla a su nuevo dueño. Nos encargamos personalmente de vender tu coche como si fuera el nuestro.",
+    "button": null,
+    "buttonUrl": null,
+    "active": true
+   },
+   "socialMedia": true,
+   "faqs": {
+    "id": "dc22cbb7-fb20-4e4d-94a8-32854e061290",
+    "faqs": [
+     {
+      "id": "68a857f9-009c-4c65-8c93-5fa7c3fdc0ea",
+      "question": "QUIERO VENDER MI COCHE ¿CÓMO TRABAJÁIS?",
+      "answer": "En Veloce Cars nos encargamos de toda la gestión oportuna para la venta de tu vehículo ofreciendo un trato exclusivo y personalizado a tus necesidades.\n\n Contacta con nosotros sin compromiso para explicarnos lo que necesitas."
+     },
+     {
+      "id": "76fde158-69da-4c2e-9afa-1ec37c4990ff",
+      "question": "¿LOS VEHÍCULOS QUE TENÉIS EN VENTA PROVIENEN DE PARTICULAR?",
+      "answer": "Si, todos nuestros vehículos provienen de clientes que lo quieren vender. Por ello nosotros, llevamos a cabo todo el proceso de venta y de postventa (cambio de nombre, transferencia, garantías...)"
+     },
+     {
+      "id": "3da79751-0ebf-41c2-99d7-69461930cdda",
+      "question": "¿ACEPTÁIS COCHE COMO FORMA DE PAGO?",
+      "answer": "Principalmente a lo que nos dedicamos es a ayudar a clientes a vender sus vehículos. Pero en caso de que lleguemos a un buen acuerdo, SI, lo podemos valorar."
+     },
+     {
+      "id": "263fcdd5-35b1-4b83-8f37-15bba21b31ea",
+      "question": "¿PUEDO SEGUIR UTILIZANDO EL COCHE HASTA QUE SE VENDA?",
+      "answer": "Por supuesto, contamos con 2 variantes.\nLa primera es que el cliente siga con el vehículo hasta que se venda \ny la segunda, que lo pueda dejar en la exposición para darle más visibilidad."
+     },
+     {
+      "id": "a0aaec66-65ae-4e7a-9bb5-c9b35ef4dce8",
+      "question": "¿Ofrecéis RENTING?",
+      "answer": "Sí, ofrecemos RENTING a medida de todos los coches que tenemos en stock."
+     }
+    ],
+    "active": true
+   }
+  },
+  "buypage": {
+   "id": "2c7ecebf-350c-4a4c-9281-56e7f43d8967",
+   "active": true,
+   "frontPage": {
+    "id": "40a97113-91f4-4e4c-a10a-e658b30c1116",
+    "modules": [
+     {
+      "id": "ea6b49c7-8d87-4952-ac07-eab802938a87",
+      "title": "Descubre nuestra oferta de vehículos",
+      "subtitle": null,
+      "image": null,
+      "description": "Busca tu coche en nuestra amplia gama de vehículos de ocasión",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": true
+   },
+   "specialOffer": {
+    "id": "b96a1ecf-dc9c-4d19-8034-5c960031a3e2",
+    "modules": [
+     {
+      "id": "22673237-32ca-4214-aab0-5bc0aeec92f6",
+      "title": "Coches de alta gama, listos para ti",
+      "subtitle": "Elegancia, potencia y exclusividad en un solo lugar",
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2F22673237-32ca-4214-aab0-5bc0aeec92f6?alt=media&token=f5ca4201-f9c2-4794-8bdd-7f1e4be2d53c",
+      "description": "Descubre nuestro stock de vehículos de lujo cuidadosamente seleccionados y revisados. En Veloce Cars encontrarás coches de alta gama listos para conducir, con la confianza y el respaldo de un servicio profesional y cercano.",
+      "button": null,
+      "buttonUrl": "",
+      "active": false
+     }
+    ],
+    "active": false
+   },
+   "vehicleDetailsVisibility": {
+    "vehicleEquipment": true
+   }
+  },
+  "sellPage": {
+   "id": null,
+   "active": true,
+   "frontPage": {
+    "id": "07d8dd72-1065-471d-b54c-957859ed1f0b",
+    "modules": [
+     {
+      "id": "30750054-d71d-48c3-bca4-7b21bd1bb573",
+      "title": "Tasación inmediata, mejor precio garantizado",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F30750054-d71d-48c3-bca4-7b21bd1bb573?alt=media&token=9529d4a7-6700-4f16-bcc4-eb626aa089c2",
+      "description": "En Dealcar, te ofrecemos una tasación rápida y sin compromiso para tu coche. Sabemos lo que tu vehículo vale, por eso te garantizamos el mejor precio del mercado. Ven a nuestro concesionario y recibe una oferta justa al instante, con la confianza y transparencia que solo nosotros te podemos brindar. ¡No pierdas la oportunidad de obtener lo que tu coche realmente merece!",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": false
+   },
+   "services": {
+    "id": null,
+    "title": null,
+    "description": null,
+    "imageUrl": null,
+    "modules": [
+     {
+      "id": "445067e4-f1ab-4ead-8401-3c89acccfa60",
+      "title": "1. Contesta nuestro formulario",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F445067e4-f1ab-4ead-8401-3c89acccfa60?alt=media&token=240eb2ee-11eb-4ea5-8700-f22f0270ee62",
+      "description": null,
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "5fe74c0f-1964-4bac-8e02-96d77ce7ccb8",
+      "title": "2. Recibimos tu información",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F5fe74c0f-1964-4bac-8e02-96d77ce7ccb8?alt=media&token=a417230a-c6e3-4027-8c02-2c8f3c74d5ab",
+      "description": null,
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "886ac96f-3a63-427f-9e20-c96e45043d02",
+      "title": "3. Nos ponemos en contacto contigo",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F886ac96f-3a63-427f-9e20-c96e45043d02?alt=media&token=78d2a5c7-e780-4110-aa0a-69007ed45bd6",
+      "description": null,
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": false
+   },
+   "firstModule": null,
+   "secondModule": null,
+   "banner": null,
+   "faqs": {
+    "id": "418b9512-a917-46e4-81e2-5b074fa4bef3",
+    "faqs": [
+     {
+      "id": "aaa536ad-5ee3-4019-b3fd-c6b29b3745be",
+      "question": "¿Cómo puedo tasar mi coche con Veloce Cars?",
+      "answer": "Puedes solicitar la tasación online o de forma presencial. Solo necesitamos los datos básicos de tu vehículo —marca, modelo, año, kilometraje y estado— para ofrecerte una valoración profesional y ajustada al mercado."
+     },
+     {
+      "id": "d19f1384-eeb1-46c0-9f2f-9873836576d2",
+      "question": "¿La tasación tiene algún coste o compromiso?",
+      "answer": "No. En Veloce Cars la tasación es gratuita y sin compromiso, permitiéndote conocer el valor real de tu coche sin obligación de venderlo."
+     },
+     {
+      "id": "7da62162-b605-4af8-b42d-a6e39558ce80",
+      "question": "¿Qué documentación necesito para realizar la tasación?",
+      "answer": "Se requiere la ficha técnica, el permiso de circulación y, si es posible, el historial de mantenimiento. Si adjuntas fotos recientes, la valoración será más precisa."
+     },
+     {
+      "id": "db9bb082-5423-4e27-82be-bdee2915e41b",
+      "question": "¿Cuánto tardo en recibir la tasación?",
+      "answer": "En la mayoría de los casos, recibirás una valoración en menos de 24 horas. Si prefieres, puedes acudir a nuestras instalaciones para una tasación inmediata y presencial."
+     },
+     {
+      "id": "f2f360ee-1071-4513-99ea-0aa091e631c5",
+      "question": "¿Puedo entregar mi coche como parte del pago?",
+      "answer": "Sí. En Veloce Cars aceptamos tu coche como parte del pago al adquirir otro vehículo de nuestro stock, haciendo la operación más sencilla y rápida."
+     },
+     {
+      "id": "8571b850-654f-44c6-a533-2960fe861d16",
+      "question": "¿Por qué tasar mi coche con Veloce Cars?",
+      "answer": "Porque ofrecemos tasaciones justas, transparentes y rápidas, realizadas por profesionales con experiencia. Garantizamos un proceso seguro y confiable, con asesoramiento personalizado en cada paso."
+     }
+    ],
+    "active": false
+   }
+  },
+  "financingPage": {
+   "id": null,
+   "active": false,
+   "frontPage": {
+    "id": "91dd7ec3-7dec-4eef-9fb3-b7f644735cf7",
+    "modules": [
+     {
+      "id": "c9c7b796-43e5-4cdd-b0b4-36abd263682a",
+      "title": "Opciones de financiación disponibles",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2Fc9c7b796-43e5-4cdd-b0b4-36abd263682a?alt=media&token=7b09d138-6f7c-48f0-ad86-21e0f92e0aaa",
+      "description": "Porque la vida da muchas vueltas, escoge la financiación que mejor se adapta a tus necesidades.",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": false
+   },
+   "services": {
+    "id": null,
+    "title": null,
+    "description": null,
+    "imageUrl": null,
+    "modules": [
+     {
+      "id": "e8ebf064-a1b8-4b32-9088-718d84f7df12",
+      "title": "Tu financiación a medida",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2Fe8ebf064-a1b8-4b32-9088-718d84f7df12?alt=media&token=51da501c-24a0-4e22-971a-0bf97a586e43",
+      "description": "La vida da muchas vueltas por ello te ofrecemos diferentes opciones de financiación. Estudiamos y seleccionamos la mejor opción para cada situación.",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "41ed128b-00c1-460a-b1b7-20ff3e64ab29",
+      "title": "Financiación para particulares",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F41ed128b-00c1-460a-b1b7-20ff3e64ab29?alt=media&token=7d286d6c-08be-434b-a6f2-6f30b0514ec6",
+      "description": "Trabajamos con diferentes opciones de financiación para particulares para encontrar la opción más apropiada para cada caso.",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "12cf3587-78e8-4197-a9b7-38cfbdcf9162",
+      "title": "Financiación para colectivos, empresas y autónomos",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F12cf3587-78e8-4197-a9b7-38cfbdcf9162?alt=media&token=70b48eda-c724-4b86-bb6e-d95c9867eb41",
+      "description": "Trabajamos con diferentes opciones de financiación para empresas, autónomos y colectivos.",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": true
+   },
+   "firstModule": {
+    "id": "dcbb1427-8c4d-42cb-a970-96898237459f",
+    "title": "Financiación Convencional",
+    "subtitle": "Una vez revisada toda la documentación por nuestro equipo financiero, te confirmaremos en el mismo día si la financiación ha sido aprobada.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2Fdcbb1427-8c4d-42cb-a970-96898237459f?alt=media&token=060975b6-5f8f-42b4-ba47-9fe62038ff86",
+    "description": "Una vez revisada toda la documentación por nuestro equipo financiero, te confirmaremos en el mismo día si la financiación ha sido aprobada.",
+    "button": null,
+    "buttonUrl": null,
+    "active": true
+   },
+   "secondModule": {
+    "id": "97d170cd-d5d5-43f7-a023-fedf2e7372c0",
+    "title": "Financiación Online",
+    "subtitle": "Un asesor contactará contigo para guiarte paso a paso. Tendrás que conectarte a tu banca online y sabrás al momento si la financiación ha sido aprobada.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F97d170cd-d5d5-43f7-a023-fedf2e7372c0?alt=media&token=0345cc9d-67c8-4a93-9896-bd4478d94120",
+    "description": "Un asesor contactará contigo para guiarte paso a paso. Tendrás que conectarte a tu banca online y sabrás al momento si la financiación ha sido aprobada.",
+    "button": null,
+    "buttonUrl": null,
+    "active": true
+   },
+   "banner": {
+    "id": "938d4d5d-f2df-49ae-ad92-c0fb2292e9fa",
+    "title": "Te ayudamos a conseguirlo",
+    "subtitle": null,
+    "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F938d4d5d-f2df-49ae-ad92-c0fb2292e9fa?alt=media&token=c55162bb-eae7-4de7-93b8-fe139c644ddd",
+    "description": "En Dealcar te ofrecemos excelentes ventajas para vender tu coche. En nuestro concesionario de compraventa de coches, aceptamos tu vehículo como parte del pago, y te damos una tasación superior al vender tu coche con nosotros.",
+    "button": "Quiero tasar mi coche",
+    "buttonUrl": null,
+    "active": true
+   },
+   "faqs": {
+    "id": "85992ae4-02e8-415a-ae7c-d32bd7e8148b",
+    "faqs": [
+     {
+      "id": "26f3f87d-74c3-44de-ad11-6c4e3b41ac51",
+      "question": "¿Ofrecéis financiación para todos los coches que vendéis?",
+      "answer": "Sí, todos nuestros coches de ocasión pueden financiarse con condiciones adaptadas a cada cliente.\n\n"
+     },
+     {
+      "id": "437924a1-aee1-48ad-ba52-9ceec98541db",
+      "question": "¿Qué documentos necesito para financiar un coche?",
+      "answer": "Necesitarás tu DNI o NIE, justificante de ingresos (como nómina o pensión) y un recibo bancario. En algunos casos, puede solicitarse documentación adicional.\n\n"
+     },
+     {
+      "id": "2aee9a27-00ab-4e68-9fb6-bc4df389bdf1",
+      "question": "¿Cuáles son los plazos disponibles para financiar?",
+      "answer": "Ofrecemos plazos flexibles que van desde 12 hasta 84 meses, según tu perfil y el importe.\n\n"
+     },
+     {
+      "id": "c514d558-afac-4267-8944-58cd89870045",
+      "question": "¿Puedo financiar el 100% del vehículo?",
+      "answer": "Sí, puedes financiar el total o dar una entrada para reducir las cuotas mensuales.\n\n"
+     },
+     {
+      "id": "722755cb-cafb-4c9a-bdaa-daacf3591691",
+      "question": "¿Cuánto tarda la aprobación de la financiación?",
+      "answer": "La aprobación suele realizarse en menos de 24 horas si tienes toda la documentación lista.\n\n"
+     },
+     {
+      "id": "fad1756e-d870-4449-ba57-df0dc49a8d61",
+      "question": "¿Qué tipo de interés aplicáis en la financiación?",
+      "answer": "Trabajamos con entidades financieras que ofrecen tipos de interés competitivos, ajustados al perfil del cliente.\n\n"
+     }
+    ],
+    "active": true
+   }
+  },
+  "extrasPage": {
+   "id": "c9b7a66f-e5b8-4f78-a74e-d79dcdfdf3a4",
+   "frontPage": {
+    "id": "ad3b89cf-6a89-4f3c-a83a-cb77eec230b0",
+    "modules": [
+     {
+      "id": "a5bedea1-6723-4edd-968e-e18e69ed2047",
+      "title": "ASESORAMIENTO PERSONALIZADO",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2Fa5bedea1-6723-4edd-968e-e18e69ed2047?alt=media&token=608b7427-270a-4720-849e-478ef1bf9cfc",
+      "description": "El principal objetivo de VELOCE CARS es ofrecer un trato exclusivo y personalizado a las necesidades de sus clientes.",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": true
+   },
+   "services": {
+    "id": "f063fe73-bb6d-47a3-9932-95260d034016",
+    "title": null,
+    "description": null,
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2Ff063fe73-bb6d-47a3-9932-95260d034016?alt=media&token=fb8eb378-5ffd-4120-80ce-c03029074f58",
+    "modules": [
+     {
+      "id": "489960e7-cc6d-400f-a5d3-3ceff470a51f",
+      "title": "REVISIÓN DEL VEHÍCULO",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/vehicle-videos/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F489960e7-cc6d-400f-a5d3-3ceff470a51f?alt=media&token=851e2c7d-0c65-4d86-be8f-bd96f07bce17",
+      "description": "Revisamos el funcionamiento y estado del vehículo para transmitirlo al futuro comprador.",
+      "button": "Contacta",
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "315a6cde-0f0d-4447-8aab-60178204e9f9",
+      "title": "REPORTAJE AUDIOVISUAL",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/vehicle-videos/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F315a6cde-0f0d-4447-8aab-60178204e9f9?alt=media&token=5b9f5b19-d8c2-46db-aa56-31bf0da6c69d",
+      "description": "Realizamos fotografías y vídeos del vehículo con el fin de darle la mejor visibilidad.",
+      "button": "Empezar",
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "7a8af27f-45d4-4125-8307-ba10db60c37b",
+      "title": "ESTUDIO DE MERCADO",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/vehicle-videos/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F7a8af27f-45d4-4125-8307-ba10db60c37b?alt=media&token=e566faf4-7099-476d-a8a4-7874d15e9cc4",
+      "description": "Con el fin de ofrecer la máxima tasación para la venta del vehículo, acordamos el mejor precio.",
+      "button": "Ver coches",
+      "buttonUrl": null,
+      "active": false
+     },
+     {
+      "id": "432b90e1-efb6-48ae-bd83-b72494649ba7",
+      "title": "PUBLICIDAD Y ANUNCIOS",
+      "subtitle": null,
+      "image": null,
+      "description": "Le damos la máxima visibilidad ofreciéndo el vehículo a nuestra cartera de clientes y ofertándolo en todas las plataformas de venta.",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": true
+   },
+   "faqs": {
+    "id": "e947b514-b1c5-44eb-a382-60623e22e9d4",
+    "faqs": [
+     {
+      "id": "f930e872-844f-48fd-b37c-a9f3002af59f",
+      "question": "¿En qué consiste el servicio de gestión de venta de Veloce Cars?",
+      "answer": "Nos encargamos de vender tu coche por ti: tasación profesional, preparación del vehículo, fotografías de calidad, publicación en portales, atención a compradores, negociación y gestión completa de la documentación."
+     },
+     {
+      "id": "0039430d-ac7c-4996-9986-6e2cb432db29",
+      "question": "¿Cómo determináis el precio adecuado para vender mi coche?",
+      "answer": "Realizamos un análisis exhaustivo del mercado, comparando modelos similares y evaluando el estado del vehículo para fijar un precio competitivo y realista, que acelere la venta sin perder valor."
+     },
+     {
+      "id": "114a3618-cf0b-487b-a60e-586897adeb63",
+      "question": "¿Qué ventajas ofrece la gestión de venta frente a vender por mi cuenta?",
+      "answer": "Ahorro de tiempo, mayor visibilidad, seguridad en el pago y asesoramiento profesional durante todo el proceso. Con Veloce Cars, tú solo recibes el pago, nosotros nos ocupamos del resto."
+     },
+     {
+      "id": "d57d344c-b056-4959-82af-84deabe90e27",
+      "question": "¿Qué incluye la asesoría automovilística?",
+      "answer": "Nuestro equipo ofrece orientación experta en compra, venta, importación, financiación y mantenimiento, ayudándote a tomar decisiones informadas y a optimizar tu inversión."
+     },
+     {
+      "id": "f51a3ccc-b269-45f4-ad5c-80884b818cbf",
+      "question": "¿Es necesario dejar el coche en depósito mientras se gestiona la venta?",
+      "answer": "Depende de tu preferencia. Aunque no es obligatorio, dejar el coche en nuestras instalaciones facilita visitas, revisiones y una venta más ágil.\n"
+     },
+     {
+      "id": "0bbf15a3-4a88-4f5c-b7eb-38fc27f39a19",
+      "question": "¿Qué trámites gestionáis una vez se encuentra comprador?",
+      "answer": "Nos encargamos de contratos, transferencia de titularidad, verificación documental y garantías legales, garantizando que la venta se realice de manera segura y sin complicaciones."
+     }
+    ],
+    "active": false
+   },
+   "active": true,
+   "promotional": {
+    "id": "5ee6a62c-2d9f-4de2-82a8-14e442929761",
+    "title": "¿QUIERES VENDER TU COCHE?",
+    "subtitle": null,
+    "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2F5ee6a62c-2d9f-4de2-82a8-14e442929761?alt=media&token=7a6b79d6-7cb1-4df2-a295-489fd614d820",
+    "description": "",
+    "button": "Rellena el formulario de contacto",
+    "buttonUrl": "/contact",
+    "active": true,
+    "createdAt": null,
+    "updatedAt": null
+   },
+   "destacados": {
+    "id": null,
+    "title": "VEHÍCULOS EN VENTA",
+    "subtitle": null,
+    "image": null,
+    "description": "",
+    "button": null,
+    "buttonUrl": null,
+    "active": true,
+    "createdAt": null,
+    "updatedAt": null
+   },
+   "socialMedia": true
+  },
+  "contactPage": {
+   "id": "8fe029aa-413b-4851-946c-4152208764bf",
+   "frontPage": {
+    "id": "daff557b-8bb9-4679-936e-66d4b571059c",
+    "modules": [
+     {
+      "id": "fb03b597-e9c1-4b3c-b66b-ac488ab0ef0b",
+      "title": "Contacta con nosotros",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2Ffb03b597-e9c1-4b3c-b66b-ac488ab0ef0b?alt=media&token=63523234-826c-4099-b376-26ae2ce2166b",
+      "description": "Para información sobre nosotros o cualquier vehículo no dudes en contactarnos",
+      "button": null,
+      "buttonUrl": null,
+      "active": false
+     }
+    ],
+    "active": true
+   },
+   "services": {
+    "id": "eacaded9-c3b9-423f-a378-f2621011d88c",
+    "title": null,
+    "description": null,
+    "imageUrl": null,
+    "modules": [
+     {
+      "id": "7afc6910-c3c1-4740-99b9-4271678114ae",
+      "title": "Llámanos",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F7afc6910-c3c1-4740-99b9-4271678114ae?alt=media&token=3334af87-90af-49b4-9d32-6c0eb9310c3f",
+      "description": "",
+      "button": "+34 618040537",
+      "buttonUrl": "tel:618040537",
+      "active": false
+     },
+     {
+      "id": "42e68d4f-0230-4935-afb2-32be73aab38b",
+      "title": "Escríbenos",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F42e68d4f-0230-4935-afb2-32be73aab38b?alt=media&token=fbd3bbcf-a0f2-4d85-bbee-f1734fb528a1",
+      "description": "",
+      "button": "velocecars1@gmail.com",
+      "buttonUrl": "mailto:velocecars1@gmail.com",
+      "active": false
+     },
+     {
+      "id": "56a2c9cd-df22-41cc-a0bd-b26dedcce4f1",
+      "title": "Visítanos",
+      "subtitle": null,
+      "image": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1db6c666-16d7-4e7b-aa75-37c31d8f0875%2F56a2c9cd-df22-41cc-a0bd-b26dedcce4f1?alt=media&token=2e427939-0c7c-4597-9711-cf007df257e1",
+      "description": "Avenida de Luis García Cereceda 5, Pozuelo de Alarcón (Madrid).",
+      "button": "Abrir Google Maps",
+      "buttonUrl": "https://www.google.com/maps/place/Av.+de+Luis+Garc%C3%ADa+Cereceda,+5,+28223+Pozuelo+de+Alarc%C3%B3n,+Madrid/@40.4041561,-3.7922205,3a,75y,110.04h,81.37t/data=!3m7!1e1!3m5!1sIPu8eLYzdqjsn4lvgO9d1A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D8.627461762817703%26panoid%3DIPu8eLYzdqjsn4lvgO9d1A%26yaw%3D110.03560647044789!7i16384!8i8192!4m15!1m8!3m7!1s0xd4188848c719c2b:0x898c6380ce140184!2sAv.+de+Luis+Garc%C3%ADa+Cereceda,+5,+28223+Pozuelo+de+Alarc%C3%B3n,+Madrid!3b1!8m2!3d40.4038716!4d-3.7921312!16s%2Fg%2F11s7lp9sbm!3m5!1s0xd4188848c719c2b:0x898c6380ce140184!8m2!3d40.4038716!4d-3.7921312!16s%2Fg%2F11s7lp9sbm?authuser=0&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
+      "active": false
+     }
+    ],
+    "active": true
+   },
+   "faqs": {
+    "id": "dcb92e1b-9415-4201-8ebf-5dc2b485edd1",
+    "faqs": [
+     {
+      "id": "f6b1a46c-0f48-4a41-87c6-ab90f9230cc4",
+      "question": "¿Cómo funciona la gestión de venta de mi coche?",
+      "answer": "Nos encargamos de todo: valoración, promoción, trámites y entrega final, asegurando que obtengas el mejor precio sin estrés ni complicaciones."
+     },
+     {
+      "id": "8d0c435a-e66a-4455-bbf2-d6eab6de8232",
+      "question": "¿Puedo comprar un coche de manera segura en Veloce Cars?",
+      "answer": "Sí, todos nuestros vehículos están revisados y certificados, con historial completo y garantía para que conduzcas con tranquilidad."
+     },
+     {
+      "id": "f07823c9-5033-49cb-919f-dc1120b7e63e",
+      "question": "¿Cuál es nuestro horario? ",
+      "answer": "Atendemos con cita previa."
+     },
+     {
+      "id": "10de082c-fef0-4e1c-8b7e-932940e85eb5",
+      "question": "¿Qué opciones de asesoría automovilística ofrecen?",
+      "answer": "Te orientamos en todos los aspectos de la compra y venta de tu coche, desde la tasación hasta la elección de financiación o seguro, adaptándonos a tus necesidades."
+     },
+     {
+      "id": "73433e24-c4b8-4723-9675-dfe05b16f52f",
+      "question": "¿Qué ventajas tiene vender o comprar con Veloce Cars?",
+      "answer": "Nos ocupamos de todo el proceso de compra o venta, garantizando transparencia, seguridad y un trato cercano. Te ayudamos a obtener el mejor precio por tu coche o a elegir el vehículo ideal sin complicaciones."
+     },
+     {
+      "id": "20e4db64-370e-4a9c-83e4-db7a1200d187",
+      "question": "¿Ofrecen servicios adicionales como tasación o renting?",
+      "answer": "Sí, realizamos tasaciones expertas, gestionamos vehículos para renting y te ayudamos a encontrar la mejor opción según tu situación y necesidades."
+     }
+    ],
+    "active": false
+   },
+   "active": true,
+   "localization": {
+    "id": "0459c46a-7e55-462d-a829-a50589b99c14",
+    "title": "Nuestra ubicación",
+    "subtitle": null,
+    "image": null,
+    "description": "Atendemos con cita previa",
+    "button": null,
+    "buttonUrl": null,
+    "active": true
+   }
+  },
+  "newVehiclesPage": null,
+  "workshopPage": null,
+  "aboutUsPage": null,
+  "settingsWeb": {
+   "id": "1d1b2f2f-e427-491f-bcd8-8e87ff6c990e",
+   "name": null,
+   "description": null,
+   "theme": "neutral",
+   "template": "TECH",
+   "font": "EPILOGUE",
+   "dealcarDomain": "www.velocecars.es",
+   "favicon": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2Ffavicon?alt=media&token=683e6ca5-a1e6-4df3-992b-6b84d67dd8de",
+   "webclip": "https://firebasestorage.googleapis.com/v0/b/web-builder/o/1546932f-9962-4e19-954a-a5676adf72bd%2Fwebclip?alt=media&token=e4ad48e7-7ec5-4da5-8619-4e40c1ec687d",
+   "active": null,
+   "showBooked": false,
+   "iframe": false,
+   "termsAndConditions": {
+    "id": null,
+    "title": "TÉRMINOS Y CONDICIONES",
+    "subtitle": null,
+    "image": null,
+    "description": "$16",
+    "button": null,
+    "buttonUrl": null,
+    "active": false
+   },
+   "privacyPolicy": {
+    "id": null,
+    "title": "POLÍTICA DE PRIVACIDAD",
+    "subtitle": null,
+    "image": null,
+    "description": "$17",
+    "button": null,
+    "buttonUrl": null,
+    "active": false
+   },
+   "legalAdvise": {
+    "id": null,
+    "title": "AVISO LEGAL",
+    "subtitle": null,
+    "image": null,
+    "description": "En cumplimiento de la Ley 34/2002 de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), se facilitan los datos de identificación del responsable del sitio web:\n\nNombre comercial: Veloce Cars\n\nTitular: Casado Aguilera Motor SL\n\nCIF: B55499149\n\nDomicilio: Avenida de Luis García Cereceda 5, Pozuelo de Alarcón, Madrid, 28223\n\nCorreo electrónico: velocecars1@gmail.com\n\nTeléfono: 619 625 040\n\nEl acceso y uso de este sitio web implica la aceptación plena y sin reservas del presente Aviso Legal.",
+    "button": null,
+    "buttonUrl": null,
+    "active": false
+   },
+   "cookies": {
+    "id": null,
+    "title": "POLÍTICA DE COOKIES",
+    "subtitle": null,
+    "image": null,
+    "description": "1. Qué son las cookies\n\nSon archivos que se almacenan en el navegador del usuario y permiten mejorar la experiencia de navegación, recordar preferencias o analizar el tráfico del sitio.\n\n2. Tipos de cookies utilizadas\n\nTécnicas: necesarias para el funcionamiento del sitio.\n\nAnalíticas: permiten analizar el comportamiento de los usuarios (ej. Google Analytics).\n\nDe personalización: adaptan la experiencia de navegación a las preferencias del usuario.\n\n3. Gestión y rechazo\n\nEl usuario puede aceptar, rechazar o configurar las cookies mediante el banner del sitio web o desde la configuración de su navegador. La desactivación de cookies puede limitar ciertas funcionalidades de la web.",
+    "button": null,
+    "buttonUrl": null,
+    "active": false
+   },
+   "googleAnalyticsId": "",
+   "facebookPixelId": "",
+   "visibleStates": [
+    "AVAILABLE",
+    "BOOKED",
+    "IN_PREPARATION",
+    "SOLD"
+   ],
+   "header": {
+    "buttonPhone": "618040537",
+    "buttonText": "Contacta con nosotros"
+   },
+   "footer": {
+    "address": "Avenida de Luis García Cereceda 5, Pozuelo de Alarcón (Madrid)",
+    "openingHours": "Atendemos con cita previa"
+   },
+   "enableBooking": false,
+   "homeUrl": "",
+   "googleSiteVerification": null
+  }
+ }
+}

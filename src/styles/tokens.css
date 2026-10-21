@@ -1,0 +1,92 @@
+/*
+ * Veloce Cars — tokens del sistema de diseño «Lujo silencioso».
+ * Documentación: docs/design-system.md. Dark-first: no hay modo claro.
+ * Contraste comprobado (WCAG 2.1): text-primary/bg-primary 18,1:1 · text-muted/bg-primary 7,0:1 ·
+ * accent/bg-primary 11,2:1 · text-subtle 5,3:1 sobre bg-primary y 4,6:1 sobre bg-elevated.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Superficies */
+  --bg-primary: #0a0a0b;
+  --bg-secondary: #121214;
+  --bg-elevated: #1a1a1e;
+  --bg-overlay: rgb(10 10 11 / 0.72);
+
+  /* Texto */
+  --text-primary: #f5f5f2;
+  --text-muted: #9a9a98;
+  --text-subtle: #84847e;
+  --text-inverse: #0a0a0b;
+
+  /* Acento platino (opción B). El oro champán #C9A96E queda documentado como alternativa. */
+  --accent: #bfc3c9;
+  --accent-hover: #e3e6ea;
+  --accent-soft: rgb(191 195 201 / 0.1);
+  --accent-line: rgb(191 195 201 / 0.35);
+
+  /* Líneas y estados */
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --success: #7fb38a;
+  --warning: #d9a85b;
+  --danger: #d0705f;
+  --focus-ring: #e3e6ea;
+
+  /* Tipografía (las familias las inyecta next/font en <html>) */
+  --font-display: var(--font-archivo), "Archivo", "Arial Narrow", system-ui, sans-serif;
+  /* Anchura del eje wdth de Archivo para titulares (125 % = Expanded) */
+  --display-stretch: 125%;
+  --font-sans: var(--font-manrope), "Manrope", system-ui, sans-serif;
+
+  /* Escala fluida 375 → 1440 px */
+  --text-xs: clamp(0.75rem, 0.73rem + 0.09vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.79rem + 0.12vw, 0.875rem);
+  --text-base: clamp(0.9375rem, 0.91rem + 0.12vw, 1rem);
+  --text-lg: clamp(1.0625rem, 1.02rem + 0.19vw, 1.1875rem);
+  --text-xl: clamp(1.25rem, 1.16rem + 0.38vw, 1.5rem);
+  --text-2xl: clamp(1.375rem, 1.25rem + 0.55vw, 1.75rem);
+  --text-3xl: clamp(1.625rem, 1.4rem + 0.95vw, 2.25rem);
+  --text-4xl: clamp(1.875rem, 1.45rem + 1.8vw, 3.125rem);
+  --text-5xl: clamp(2.125rem, 1.45rem + 2.9vw, 4.25rem);
+  --text-6xl: clamp(2.375rem, 1.3rem + 4.6vw, 5.75rem);
+
+  /* Espaciado de sección y layout */
+  --section-y: clamp(4.5rem, 2.9rem + 6.8vw, 10rem);
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 2.5rem);
+  --container: 1440px;
+  --header-h: 5rem;
+  --header-h-compact: 4rem;
+
+  /* Radios: casi rectos, el lujo no redondea */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Movimiento */
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 200ms;
+  --dur-base: 300ms;
+  --dur-slow: 800ms;
+  --dur-reveal: 1100ms;
+
+  /* Sombras / brillos */
+  --shadow-card: 0 30px 60px -30px rgb(0 0 0 / 0.8);
+  --glow-accent: 0 0 0 1px var(--accent-line), 0 20px 50px -20px rgb(191 195 201 / 0.18);
+
+  /* Capas */
+  --z-header: 40;
+  --z-floating: 45;
+  --z-overlay: 50;
+  --z-modal: 60;
+  --z-cookie: 70;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+    --dur-reveal: 0ms;
+  }
+}

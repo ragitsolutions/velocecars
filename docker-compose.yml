@@ -1,0 +1,22 @@
+# Despliegue en VPS con Docker. Ver docs/despliegue.md (proxy HTTPS con Caddy o Nginx).
+services:
+  web:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://www.velocecars.es}
+        NEXT_PUBLIC_SITE_ENV: ${NEXT_PUBLIC_SITE_ENV:-production}
+        NEXT_PUBLIC_GTM_ID: ${NEXT_PUBLIC_GTM_ID:-}
+    image: veloce-cars:latest
+    restart: unless-stopped
+    env_file: .env.production
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      # Inventario editable sin reconstruir (data/vehicles.json).
+      - ./data:/app/data:ro
+      # Caché de imágenes optimizadas de Next entre reinicios.
+      - next-cache:/app/.next/cache
+
+volumes:
+  next-cache:

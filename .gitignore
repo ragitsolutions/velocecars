@@ -1,0 +1,24 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+.env
+.env*.local
+playwright-report
+test-results
+.DS_Store
+# Fotos descargadas de DealCar: se publican vía CDN/blob, ver docs/manual-cliente.md
+public/vehicles/
+
+# Fuentes pesadas (se regeneran con scripts/3d)
+assets-src/
+
+# Descargas sueltas (p. ej. modelos 3D de terceros pendientes de revisar)
+*.zip
+.lighthouseci/
+.env.production
+
+# Volcado de fichas de DealCar: incluye matrículas de coches de particulares (dato personal).
+# Solo lo usa scripts/dealcar/import-stock.mjs (opcional); se queda en local.
+docs/anexos/dealcar-fichas-*.json
