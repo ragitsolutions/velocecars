@@ -6,6 +6,7 @@ import { getBrands, getInventoryStats } from "@/lib/inventory";
 import { parseInventoryParams } from "@/lib/inventory/search-params";
 import { JsonLd } from "@/lib/seo/json-ld";
 import { breadcrumbSchema } from "@/lib/seo/vehicle-schema";
+import { fitHeading } from "@/lib/utils/fit-heading";
 import { formatNumber } from "@/lib/utils/format";
 import { InventoryView } from "./inventory-view";
 
@@ -44,9 +45,11 @@ export async function GeneralInventoryPage({ sp = {} }: { sp?: InventorySearchPa
 
   return (
     <section className="container-luxe pt-[calc(var(--header-h)+3rem)] pb-[var(--section-y)]">
-      <header className="mb-12 max-w-3xl">
+      <header className="@container mb-12 max-w-3xl">
         <p className="eyebrow mb-4">Inventario · {formatNumber(stats.count)} vehículos</p>
-        <h1 className="text-5xl">Vehículos en venta</h1>
+        <h1 className="fit [--size:var(--text-5xl)]" style={fitHeading("Vehículos en venta")}>
+          Vehículos en venta
+        </h1>
         <p className="mt-5 text-lg text-muted">
           Busca tu coche en nuestro stock de alta gama: cada vehículo, revisado, documentado y con
           garantía.
@@ -94,11 +97,13 @@ export async function BrandInventoryPage({
         </Link>{" "}
         / <span className="text-fg">{brand.name}</span>
       </nav>
-      <header className="mb-12 max-w-3xl">
+      <header className="@container mb-12 max-w-3xl">
         <p className="eyebrow mb-4">
           {brand.count} {brand.count === 1 ? "vehículo" : "vehículos"} en stock
         </p>
-        <h1 className="text-5xl">{brand.name} de ocasión</h1>
+        <h1 className="fit [--size:var(--text-5xl)]" style={fitHeading(`${brand.name} de ocasión`)}>
+          {brand.name} de ocasión
+        </h1>
         <p className="mt-5 text-lg text-muted">
           {brandIntros[brand.slug] ?? defaultBrandIntro(brand.name)}
         </p>

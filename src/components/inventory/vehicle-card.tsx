@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "@/components/ui/link";
 import type { Vehicle } from "@/lib/inventory/types";
 import { vehicleHref, vehicleTransitionName } from "@/lib/inventory/urls";
+import { fitHeading } from "@/lib/utils/fit-heading";
 import { cn, formatKm, formatPower, formatPrice } from "@/lib/utils/format";
 import { VehicleCardActions } from "./vehicle-card-actions";
 
@@ -118,9 +119,9 @@ export function VehicleCard({
       {actions && <VehicleCardActions id={v.id} name={`${v.brand} ${v.model}`} />}
 
       <div className="flex flex-1 flex-col gap-5 p-6">
-        <div>
+        <div className="@container">
           <p className="eyebrow mb-2 text-[0.625rem]">{v.brand}</p>
-          <h3 className="text-3xl leading-tight">
+          <h3 className="fit leading-tight [--size:var(--text-3xl)]" style={fitHeading(v.model)}>
             <Link
               href={vehicleHref(v)}
               data-view-transition={vehicleTransitionName(v.id)}

@@ -11,6 +11,7 @@ import { sellTeaser } from "@/content/home";
 import { sellPage } from "@/content/pages";
 import { getBrands } from "@/lib/inventory";
 import { site, whatsappUrl } from "@/lib/site";
+import { fitHeading } from "@/lib/utils/fit-heading";
 
 export const metadata: Metadata = {
   title: "Vende tu coche · Tasación gratuita en 24 h",
@@ -74,11 +75,16 @@ export default async function SellPage() {
           </Reveal>
           <RevealGroup className="grid gap-px border border-line bg-line md:grid-cols-3">
             {sellPage.arguments.map((a, i) => (
-              <RevealItem key={a.title} className="flex flex-col gap-4 bg-bg p-8 lg:p-10">
+              <RevealItem
+                key={a.title}
+                className="@container flex flex-col gap-4 bg-bg p-8 lg:p-10"
+              >
                 <span className="tabular font-display text-5xl text-accent/70">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-2xl">{a.title}</h3>
+                <h3 className="fit [--size:var(--text-2xl)]" style={fitHeading(a.title)}>
+                  {a.title}
+                </h3>
                 <p className="text-muted">{a.text}</p>
               </RevealItem>
             ))}

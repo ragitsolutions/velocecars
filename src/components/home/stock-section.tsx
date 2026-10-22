@@ -22,7 +22,7 @@ export function StockSection({
     <section aria-labelledby="stock-title" className="section pt-16 md:pt-20">
       <div className="container-luxe">
         <div className="mb-10 flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <Reveal>
+          <Reveal className="md:min-w-0 md:flex-1">
             <SectionHeading
               index="01"
               eyebrow="En venta"

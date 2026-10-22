@@ -27,7 +27,7 @@ export function ServicesSection() {
     <section aria-labelledby="servicios-title" className="section border-t border-line">
       <div className="container-luxe">
         <div className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <Reveal>
+          <Reveal className="md:min-w-0 md:flex-1">
             <SectionHeading
               index="04"
               eyebrow="Servicios"

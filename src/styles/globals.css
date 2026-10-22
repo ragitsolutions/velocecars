@@ -67,9 +67,13 @@
     letter-spacing: 0.005em;
     text-transform: uppercase;
     text-wrap: balance;
-    /* Palabras largas en versalitas expandidas («AUTOMOVILÍSTICA») en móviles de 360–375 px.
-       Sin `hyphens: auto`: cargar el diccionario de silabeo encarecía la primera maquetación. */
-    overflow-wrap: break-word;
+    /* Nunca se parte una palabra (antes `overflow-wrap: break-word` cortaba «AVENTADO / R»):
+       los titulares estrechos reducen su tamaño para que la palabra más larga quepa (`.fit`). */
+  }
+
+  /* Tamaño de diseño (--size) limitado a lo que cabe (--fit, src/lib/utils/fit-heading.ts). */
+  .fit {
+    font-size: min(var(--size), var(--fit, var(--size)));
   }
 
   /* Archivo no tiene cursiva cargada: el énfasis en titulares se marca solo con color o peso. */

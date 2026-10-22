@@ -110,6 +110,7 @@ export default async function ServicesPage() {
           <div className="container-luxe">
             <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
               <SectionHeading
+                className="min-w-0 flex-1"
                 eyebrow="En venta"
                 title={<span id="en-venta">Vehículos en venta</span>}
               />

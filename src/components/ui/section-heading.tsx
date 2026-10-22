@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { fitHeading } from "@/lib/utils/fit-heading";
 import { cn } from "@/lib/utils/format";
 
 type Props = {
@@ -24,7 +25,9 @@ export function SectionHeading({
   return (
     <header
       className={cn(
-        "flex max-w-3xl flex-col gap-5",
+        // @container: el titular se ajusta a su ancho (fitHeading). Dentro de una fila flex, el
+        // contenedor necesita ancho propio (`min-w-0 flex-1` en el envoltorio).
+        "@container flex max-w-3xl flex-col gap-5",
         align === "center" && "mx-auto items-center text-center",
         className,
       )}
@@ -38,7 +41,15 @@ export function SectionHeading({
         )}
         {eyebrow}
       </p>
-      <Tag className={Tag === "h1" ? "text-5xl" : "text-4xl"}>{title}</Tag>
+      <Tag
+        className={cn(
+          "fit",
+          Tag === "h1" ? "[--size:var(--text-5xl)]" : "[--size:var(--text-4xl)]",
+        )}
+        style={fitHeading(title)}
+      >
+        {title}
+      </Tag>
       {intro && <div className="max-w-2xl text-lg text-muted">{intro}</div>}
     </header>
   );

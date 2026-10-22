@@ -9,6 +9,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { aboutPage } from "@/content/pages";
 import { getInventoryStats } from "@/lib/inventory";
 import { site } from "@/lib/site";
+import { fitHeading } from "@/lib/utils/fit-heading";
 
 export const metadata: Metadata = {
   title: "Quiénes somos",
@@ -88,8 +89,10 @@ export default async function AboutPage() {
           </Reveal>
           <RevealGroup className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {aboutPage.values.map((v) => (
-              <RevealItem key={v.title} className="flex flex-col gap-3 bg-bg p-8">
-                <h3 className="text-xl">{v.title}</h3>
+              <RevealItem key={v.title} className="@container flex flex-col gap-3 bg-bg p-8">
+                <h3 className="fit [--size:var(--text-xl)]" style={fitHeading(v.title)}>
+                  {v.title}
+                </h3>
                 <p className="text-sm text-muted">{v.text}</p>
               </RevealItem>
             ))}

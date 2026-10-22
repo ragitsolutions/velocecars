@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { fitHeading } from "@/lib/utils/fit-heading";
 import { cn } from "@/lib/utils/format";
 
 /** Cabecera de página interior: imagen de estudio del cliente a sangre con velo oscuro. */
@@ -44,9 +45,14 @@ export function PageHero({
           />
         </>
       )}
-      <div className="container-luxe pt-12 pb-16 sm:pt-24 lg:pb-24">
+      <div className="container-luxe @container pt-12 pb-16 sm:pt-24 lg:pb-24">
         <p className="eyebrow mb-6">{eyebrow}</p>
-        <h1 className="max-w-4xl text-4xl sm:text-5xl">{title}</h1>
+        <h1
+          className="fit max-w-4xl [--size:var(--text-4xl)] sm:[--size:var(--text-5xl)]"
+          style={fitHeading(title)}
+        >
+          {title}
+        </h1>
         {intro && <div className="mt-6 max-w-2xl text-lg text-muted">{intro}</div>}
         {children && <div className="mt-10 flex flex-wrap gap-4">{children}</div>}
       </div>

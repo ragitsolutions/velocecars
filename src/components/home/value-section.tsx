@@ -7,6 +7,7 @@ import {
   RevealText,
 } from "@/components/motion/reveal";
 import { valueProposition } from "@/content/home";
+import { fitHeading } from "@/lib/utils/fit-heading";
 
 /** Propuesta de valor: la «asesoría automovilística» de la web actual, con foto de su estudio. */
 export function ValueSection() {
@@ -38,8 +39,10 @@ export function ValueSection() {
           </Reveal>
           <RevealGroup className="mt-10 grid gap-px bg-line sm:grid-cols-2">
             {pillars.map((p) => (
-              <RevealItem key={p.title} className="bg-bg p-6">
-                <h3 className="mb-2 text-base">{p.title}</h3>
+              <RevealItem key={p.title} className="@container bg-bg p-6">
+                <h3 className="fit mb-2 [--size:var(--text-base)]" style={fitHeading(p.title)}>
+                  {p.title}
+                </h3>
                 <p className="text-sm text-muted">{p.text}</p>
               </RevealItem>
             ))}

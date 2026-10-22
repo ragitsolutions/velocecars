@@ -28,6 +28,7 @@ import { groupEquipment } from "@/lib/inventory/equipment";
 import type { Vehicle } from "@/lib/inventory/types";
 import { vehicleHref, vehicleTransitionName } from "@/lib/inventory/urls";
 import { JsonLd } from "@/lib/seo/json-ld";
+import { fitHeading } from "@/lib/utils/fit-heading";
 import { breadcrumbSchema, vehicleSchema } from "@/lib/seo/vehicle-schema";
 import { PENDING, site, whatsappUrl } from "@/lib/site";
 import { formatKm, formatNumber, formatPower, formatPrice } from "@/lib/utils/format";
@@ -204,9 +205,14 @@ export default async function VehiclePage({ params }: { params: Promise<Params> 
         <div className="flex min-w-0 flex-col gap-16 lg:col-span-8">
           <header className="flex flex-col gap-6">
             <div className="flex items-start justify-between gap-6">
-              <div>
+              <div className="@container min-w-0 flex-1">
                 <p className="eyebrow mb-3">{v.brand}</p>
-                <h1 className="text-4xl sm:text-5xl">{v.model}</h1>
+                <h1
+                  className="fit [--size:var(--text-4xl)] sm:[--size:var(--text-5xl)]"
+                  style={fitHeading(v.model)}
+                >
+                  {v.model}
+                </h1>
                 {v.version && <p className="mt-3 text-lg text-muted">{v.version}</p>}
               </div>
               <div className="flex shrink-0 flex-col items-end gap-4">
@@ -393,9 +399,10 @@ export default async function VehiclePage({ params }: { params: Promise<Params> 
                 <p className="text-xs tracking-[0.18em] text-subtle uppercase">Precio</p>
                 <VehicleCardActions id={v.id} name={name} className="relative print:hidden" />
               </div>
-              <div>
+              <div className="@container">
                 <p
-                  className="tabular mt-2 font-display text-4xl leading-none xl:text-5xl"
+                  className="tabular fit mt-2 font-display leading-none [--size:var(--text-4xl)] xl:[--size:var(--text-5xl)]"
+                  style={fitHeading(formatPrice(v.price))}
                   data-testid="vehicle-price"
                 >
                   {formatPrice(v.price)}
@@ -505,8 +512,13 @@ export default async function VehiclePage({ params }: { params: Promise<Params> 
         className="fixed inset-x-0 bottom-0 z-[var(--z-floating)] border-t border-line-strong bg-bg-elevated/95 backdrop-blur-xl lg:hidden print:hidden"
       >
         <div className="container-luxe flex items-center gap-3 py-3">
-          <div className="min-w-0 flex-1">
-            <p className="tabular font-display text-xl leading-none">{formatPrice(v.price)}</p>
+          <div className="@container min-w-0 flex-1">
+            <p
+              className="tabular fit font-display leading-none [--size:var(--text-xl)]"
+              style={fitHeading(formatPrice(v.price))}
+            >
+              {formatPrice(v.price)}
+            </p>
             {!sold && (
               <p className="tabular mt-1 truncate text-xs text-subtle">
                 desde {formatPrice(Math.round(estimate.monthly))}/mes

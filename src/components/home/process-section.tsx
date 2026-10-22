@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { processSteps } from "@/content/home";
+import { fitHeading } from "@/lib/utils/fit-heading";
 
 /**
  * Proceso de venta en 4 pasos. La línea se dibuja con el scroll (stroke-dashoffset sobre un
@@ -127,7 +128,7 @@ export function ProcessSection({
                 key={step.title}
                 data-step
                 data-active="true"
-                className="group relative pl-10 md:pl-0"
+                className="group @container relative pl-10 md:pl-0"
               >
                 <span
                   aria-hidden
@@ -138,7 +139,10 @@ export function ProcessSection({
                 <p className="tabular mb-3 text-xs tracking-[0.2em] text-subtle transition-colors duration-500 group-data-[active=true]:text-accent">
                   PASO {String(i + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mb-3 text-2xl text-fg/50 transition-colors duration-700 group-data-[active=true]:text-fg">
+                <h3
+                  className="fit mb-3 text-fg/50 transition-colors duration-700 [--size:var(--text-2xl)] group-data-[active=true]:text-fg"
+                  style={fitHeading(step.title)}
+                >
                   {step.title}
                 </h3>
                 <p className="text-sm text-muted">{step.text}</p>

@@ -2,6 +2,7 @@ import Link from "@/components/ui/link";
 import type { ReactNode } from "react";
 import { WithPending } from "@/components/ui/pending";
 import { PENDING, legalNav } from "@/lib/site";
+import { fitHeading } from "@/lib/utils/fit-heading";
 import { cn } from "@/lib/utils/format";
 
 /**
@@ -46,8 +47,10 @@ export function LegalPage({
             </ul>
           </nav>
         </aside>
-        <div className="min-w-0 lg:col-span-8">
-          <h1 className="text-5xl">{title}</h1>
+        <div className="@container min-w-0 lg:col-span-8">
+          <h1 className="fit [--size:var(--text-5xl)]" style={fitHeading(title)}>
+            {title}
+          </h1>
           <p className="mt-4 text-sm text-subtle">Última actualización: {updated}</p>
           <p className="mt-6 border-l border-accent/50 pl-4 text-sm text-subtle">
             <WithPending
